@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="card size">
+      <div class="card-header card-header-primary">
+        <h2 class="card-title ">Internship Details</h2>
+        <p class="card-category"> click on header to sort the data</p>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <mat-form-field class="example-form">
+            <input matInput  placeholder="Search Subject"
+              class="example-full-width">
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <button (click)="onAddInternship()" mat-raised-button color="primary" class="btn">
+            <mat-icon >add</mat-icon> Add Details
+          </button>
+        </div>
+      </div>
+      <!-- <div class="card-body" *ngIf="!flag">
+          <div class="table-responsive" >
+              <h6>*No Record Found</h6>
+  
+        </div>
+        </div> -->
+  
+      <div class="card-body">
+        <div class="table-responsive">
+          <table mat-table [dataSource]="Subject_dataSource" matSort multiTemplateDataRows>
+            <tbody>
+              <ng-container matColumnDef="Date">
+                <th mat-header-cell *matHeaderCellDef> </th>
+              </ng-container>
+              <ng-container matColumnDef="Status">
+                <th mat-header-cell *matHeaderCellDef> </th>
+              </ng-container>
+              <ng-container matColumnDef="Start_date">
+                <th mat-header-cell *matHeaderCellDef> </th>
+              </ng-container>
+              <ng-container matColumnDef="Job_profile">
+                <th mat-header-cell *matHeaderCellDef> </th>
+              </ng-container>
+              <ng-container matColumnDef="Action">
+                <th mat-header-cell *matHeaderCellDef> </th>
+              </ng-container>
+              
+  
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <button mat-raised-button color="warn">
+            <mat-icon>delete</mat-icon> Delete All
+          </button> </div>
+        <div class="col-md-8">
+          <mat-paginator [pageSizeOptions]="[2,5]">
+          </mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
