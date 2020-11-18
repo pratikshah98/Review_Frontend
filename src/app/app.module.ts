@@ -37,6 +37,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddinternshipComponent } from './addinternship/addinternship.component';
 import { AddstudentComponent } from './addstudent/addstudent.component';
 import { AddfacultyComponent } from './addfaculty/addfaculty.component';
+import { LocationComponent } from './component/location/location.component';
+import { JobProfileComponent } from './component/job-profile/job-profile.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { AddfacultyComponent } from './addfaculty/addfaculty.component';
     AddcompanyComponent,
     AddinternshipComponent,
     AddstudentComponent,
-    AddfacultyComponent
+    AddfacultyComponent,
+    LocationComponent,
+    JobProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -1,45 +1,46 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageEvent, MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { AdminService } from "../../service/admin.service";
-import { student_class } from "../../classes/studentClass";
+import { jobProfileClass } from "../../classes/jobProfile";
 @Component({
-  selector: 'app-student',
-  templateUrl: './student.component.html',
-  styleUrls: ['./student.component.css']
+  selector: 'app-job-profile',
+  templateUrl: './job-profile.component.html',
+  styleUrls: ['./job-profile.component.css']
 })
-export class StudentComponent implements OnInit {
+export class JobProfileComponent implements OnInit {
   flag:boolean;
   currentdialog:MatDialogRef<any>=null;
-  studnetDataSource=new MatTableDataSource();
+  jobProfileDataSource=new MatTableDataSource();
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
   @ViewChild(MatSort)
   sort: MatSort;
   pageEvent: PageEvent;
-  student_arr:  student_class[]= [];
+  jobProfile_arr:  jobProfileClass[]= [];
   constructor(private route:Router,private adminService:AdminService) { }
-  displayedColumns: string[] = ['student_email','student_contact_no','student_name','Action'];
+  displayedColumns: string[] = ['job_profile_id','job_profile_name','Action'];
+ 
   ngOnInit(): void {
     this.flag=true;
-    this.adminService.getAllStudent().subscribe((data:any)=>{
-      this.studnetDataSource.paginator = this.paginator;
-      this.studnetDataSource.sort = this.sort;
-      this.student_arr=data;
-      this.studnetDataSource.data=this.student_arr;
+    this.adminService.getAllJobProfile().subscribe((data:any)=>{
+      this.jobProfileDataSource.paginator = this.paginator;
+      this.jobProfileDataSource.sort = this.sort;
+      this.jobProfile_arr=data;
+      this.jobProfileDataSource.data=this.jobProfile_arr;
       console.log(data);
     });
   }
-  onAddstudent()
+  onAddJobProfile()
   {
     this.route.navigate(['menu/addfaculty']);
   }
   applyFilter(filterValue: string) {
-    this.studnetDataSource.filter = filterValue.trim().toLowerCase();
-    if(this.studnetDataSource.filteredData.length==0)
+    this.jobProfileDataSource.filter = filterValue.trim().toLowerCase();
+    if(this.jobProfileDataSource.filteredData.length==0)
     {
       this.flag=false;
     }
@@ -53,4 +54,5 @@ export class StudentComponent implements OnInit {
   {
 
   }
+
 }

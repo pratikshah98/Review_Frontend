@@ -5,42 +5,42 @@ import { PageEvent, MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { AdminService } from "../../service/admin.service";
-import { companyClass } from "../../classes/company";
+import { locationClass } from "../../classes/location";
 @Component({
-  selector: 'app-company',
-  templateUrl: './company.component.html',
-  styleUrls: ['./company.component.css']
+  selector: 'app-location',
+  templateUrl: './location.component.html',
+  styleUrls: ['./location.component.css']
 })
-export class CompanyComponent implements OnInit {
+export class LocationComponent implements OnInit {
   flag:boolean;
   currentdialog:MatDialogRef<any>=null;
-  companyDataSource=new MatTableDataSource();
+  locationDataSource=new MatTableDataSource();
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
   @ViewChild(MatSort)
   sort: MatSort;
   pageEvent: PageEvent;
-  company_arr:  companyClass[]= [];
+  location_arr:  locationClass[]= [];
   constructor(private route:Router,private adminService:AdminService) { }
-  displayedColumns: string[] = ['company_name','company_url','Action'];
+  displayedColumns: string[] = ['location_id','location_name','Action'];
 
   ngOnInit(): void {
     this.flag=true;
-    this.adminService.getAllCompany().subscribe((data:any)=>{
-      this.companyDataSource.paginator = this.paginator;
-      this.companyDataSource.sort = this.sort;
-      this.company_arr=data;
-      this.companyDataSource.data=this.company_arr;
+    this.adminService.getAllLocation().subscribe((data:any)=>{
+      this.locationDataSource.paginator = this.paginator;
+      this.locationDataSource.sort = this.sort;
+      this.location_arr=data;
+      this.locationDataSource.data=this.location_arr;
       console.log(data);
     });
   }
-  onAddCompany()
+  onAddLocation()
   {
-    this.route.navigate(['menu/addcompany']);
+    this.route.navigate(['menu/addfaculty']);
   }
   applyFilter(filterValue: string) {
-    this.companyDataSource.filter = filterValue.trim().toLowerCase();
-    if(this.companyDataSource.filteredData.length==0)
+    this.locationDataSource.filter = filterValue.trim().toLowerCase();
+    if(this.locationDataSource.filteredData.length==0)
     {
       this.flag=false;
     }

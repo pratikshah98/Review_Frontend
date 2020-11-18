@@ -12,6 +12,8 @@ import { AddcompanyComponent } from './addcompany/addcompany.component';
 import { AddinternshipComponent } from './addinternship/addinternship.component';
 import { AddstudentComponent } from './addstudent/addstudent.component';
 import { AddfacultyComponent } from './addfaculty/addfaculty.component';
+import { LocationComponent } from './component/location/location.component';
+import { JobProfileComponent } from './component/job-profile/job-profile.component';
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'card',component:CardComponent},
@@ -23,9 +25,12 @@ const routes: Routes = [
     {path:'addcompany',component:AddcompanyComponent},
     {path:'addinternship',component:AddinternshipComponent},
     {path:'addstudent',component:AddstudentComponent},
-    {path:'addfaculty',component:AddfacultyComponent}
+    {path:'addfaculty',component:AddfacultyComponent},
+    {path:'location',component:LocationComponent},
+    {path:'jobprofile',component:JobProfileComponent},
+    {path:'course',component:CourseComponent},
   ]},
-  {path:'course',component:CourseComponent},
+  
   //{path:'addinternship',component:AddinternshipComponent},
 ];
 

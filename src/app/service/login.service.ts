@@ -14,7 +14,7 @@ export class LoginService {
   studentLogin(item)
   {
     let body=JSON.stringify(item);
-    console.log(body);
+   // console.log(body);
     return this._http.post(this.baseUrl,body,httpOptions);
   }
 }

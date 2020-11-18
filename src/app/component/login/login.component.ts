@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       const password = this.form.get('password').value;
 
       this.loginService.studentLogin(new loginClass(username, password)).subscribe(
-        (data:student_class[]) => {
+        (data:any) => {
           //console.log("hello");
           console.log(data);
           this._router.navigate(['menu']);
