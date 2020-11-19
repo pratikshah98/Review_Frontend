@@ -1,0 +1,42 @@
+
+<div class="container">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">New Location</h4>
+                <p class="card-category">New Location is being added</p>
+              </div>
+              <div class="card-body">
+                <form class="example-form" (ngSubmit)="onclickAdd()" #f="ngForm">
+                  <div class="rows">
+  
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Select LocationName"  ngModel #locationname="ngModel" required
+                        [(ngModel)]="location_name" name="location_name">
+                      <mat-error *ngIf="locationname?.hasError('required')">
+                        LocationName is Required
+                      </mat-error>
+                    </mat-form-field>
+  
+    
+  
+                  </div>
+                  <br>
+                  <div class="rows">
+                    <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Add Location </button>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

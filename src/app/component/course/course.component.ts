@@ -38,7 +38,7 @@ export class CourseComponent implements OnInit {
   }
   onAddCourse()
   {
-    this.route.navigate(['menu/addfaculty']);
+    this.route.navigate(['menu/addcourse']);
   }
   applyFilter(filterValue: string) {
     this.courseDataSource.filter = filterValue.trim().toLowerCase();

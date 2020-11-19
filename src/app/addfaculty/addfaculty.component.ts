@@ -8,6 +8,9 @@ import {
 } from "@angular/forms";
 import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AdminService } from 'src/app/service/admin.service';
+import { facultyClass } from '../classes/faculty';
 
 @Component({
   selector: 'app-addfaculty',
@@ -15,31 +18,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./addfaculty.component.css']
 })
 export class AddfacultyComponent implements OnInit {
-  Question:string;
-  Option1:string;
-  Option2:string;
-  Option3:string;
-  Option4:string;
-  Answer:string;
-  count:number=1;
- role:number;
- id:number;
- registerForm: FormGroup;
- //subject_list:subject_class[];
- subject_id:number=0;
- //question:questions_class[];
- //tag_list:tag_class[];
- tag_id:number=0;
- diff_id:number=0;
+ faculty_contact_number:string;
+ faculty_email_id:string;
+ faculty_name:string;
 
 
-  constructor() { }
+  constructor(private _route:Router,private _adminService:AdminService) { }
   onclickAdd()
   {
+    this._adminService.addFaculty(new facultyClass(this.faculty_contact_number,this.faculty_email_id,this.faculty_name)).subscribe(
+      (data:any)=>{
+        //this.location_arr.push()
+       
+        console.log(data);
+          alert('Faculty Added suceessfully..');
+          this._route.navigate(['menu/faculty']);
+        
+        
+    }
+    );
 
   }
   onclickCancle(){
-
+    this._route.navigate(['menu/faculty']);
   }
 
   ngOnInit(): void {

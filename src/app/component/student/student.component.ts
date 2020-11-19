@@ -35,7 +35,7 @@ export class StudentComponent implements OnInit {
   }
   onAddstudent()
   {
-    this.route.navigate(['menu/addfaculty']);
+    this.route.navigate(['menu/addstudent']);
   }
   applyFilter(filterValue: string) {
     this.studnetDataSource.filter = filterValue.trim().toLowerCase();

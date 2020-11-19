@@ -36,7 +36,7 @@ export class LocationComponent implements OnInit {
   }
   onAddLocation()
   {
-    this.route.navigate(['menu/addfaculty']);
+    this.route.navigate(['menu/addlocation']);
   }
   applyFilter(filterValue: string) {
     this.locationDataSource.filter = filterValue.trim().toLowerCase();

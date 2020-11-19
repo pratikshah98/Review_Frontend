@@ -10,35 +10,38 @@ import {
 import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/service/admin.service';
-import { companyClass } from '../classes/company';
+import { courseClass } from 'src/app/classes/course';
+
 @Component({
-  selector: 'app-addcompany',
-  templateUrl: './addcompany.component.html',
-  styleUrls: ['./addcompany.component.css']
+  selector: 'app-addcourse',
+  templateUrl: './addcourse.component.html',
+  styleUrls: ['./addcourse.component.css']
 })
-export class AddcompanyComponent implements OnInit {
-  
-company_name:string;
-company_url:string;
+export class AddcourseComponent implements OnInit {
+course_duration:Date;
+course_name:string;
+course_strength:number;
+
+
   constructor(private _route:Router,private _adminService:AdminService) { }
 
   ngOnInit(): void {
   }
   onclickAdd()
   {
-    this._adminService.addCompany(new companyClass(this.company_name,this.company_url)).subscribe(
+    this._adminService.addCourse(new courseClass(this.course_duration,this.course_name,this.course_strength)).subscribe(
       (data:any)=>{
         //this.location_arr.push()
        
         console.log(data);
-          alert('company Added suceessfully..');
-          this._route.navigate(['menu/company']);
+          alert('Course Added suceessfully..');
+          this._route.navigate(['menu/course']);
         
         
     }
     );
   }
   onclickCancle(){
-    this._route.navigate(['menu/company']);
+    this._route.navigate(['menu/course']);
   }
 }

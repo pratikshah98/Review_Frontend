@@ -10,35 +10,35 @@ import {
 import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/service/admin.service';
-import { companyClass } from '../classes/company';
+import { jobProfileClass } from 'src/app/classes/jobProfile';
+
 @Component({
-  selector: 'app-addcompany',
-  templateUrl: './addcompany.component.html',
-  styleUrls: ['./addcompany.component.css']
+  selector: 'app-addjobprofile',
+  templateUrl: './addjobprofile.component.html',
+  styleUrls: ['./addjobprofile.component.css']
 })
-export class AddcompanyComponent implements OnInit {
-  
-company_name:string;
-company_url:string;
+export class AddjobprofileComponent implements OnInit {
+job_profile_name:string;
   constructor(private _route:Router,private _adminService:AdminService) { }
 
   ngOnInit(): void {
   }
   onclickAdd()
   {
-    this._adminService.addCompany(new companyClass(this.company_name,this.company_url)).subscribe(
+    this._adminService.addJobProfile(new jobProfileClass(this.job_profile_name)).subscribe(
       (data:any)=>{
         //this.location_arr.push()
        
         console.log(data);
-          alert('company Added suceessfully..');
-          this._route.navigate(['menu/company']);
+          alert('Jobprofile Added Suceessfully..');
+          this._route.navigate(['menu/jobprofile']);
         
         
     }
     );
   }
   onclickCancle(){
-    this._route.navigate(['menu/company']);
+    this._route.navigate(['menu/location']);
   }
+
 }

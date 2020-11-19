@@ -36,7 +36,7 @@ export class JobProfileComponent implements OnInit {
   }
   onAddJobProfile()
   {
-    this.route.navigate(['menu/addfaculty']);
+    this.route.navigate(['menu/addjobprofile']);
   }
   applyFilter(filterValue: string) {
     this.jobProfileDataSource.filter = filterValue.trim().toLowerCase();

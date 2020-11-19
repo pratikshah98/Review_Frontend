@@ -1,0 +1,42 @@
+
+<div class="container">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">New Jobprofile</h4>
+                <p class="card-category">New jobprofile is being added</p>
+              </div>
+              <div class="card-body">
+                <form class="example-form" (ngSubmit)="onclickAdd()" #f="ngForm">
+                  <div class="rows">
+  
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Select Jobprofile"  ngModel #jobprofile="ngModel" required
+                        [(ngModel)]="job_profile_name" name="job_profile_name">
+                      <mat-error *ngIf="jobprofile?.hasError('required')">
+                     JobProfile is Required
+                      </mat-error>
+                    </mat-form-field>
+  
+    
+  
+                  </div>
+                  <br>
+                  <div class="rows">
+                    <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Add Jobprofile </button>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

@@ -14,6 +14,9 @@ import { AddstudentComponent } from './addstudent/addstudent.component';
 import { AddfacultyComponent } from './addfaculty/addfaculty.component';
 import { LocationComponent } from './component/location/location.component';
 import { JobProfileComponent } from './component/job-profile/job-profile.component';
+import { AddlocationComponent } from './component/addlocation/addlocation.component';
+import { AddjobprofileComponent } from './component/addjobprofile/addjobprofile.component';
+import { AddcourseComponent } from './component/addcourse/addcourse.component';
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'card',component:CardComponent},
@@ -29,6 +32,10 @@ const routes: Routes = [
     {path:'location',component:LocationComponent},
     {path:'jobprofile',component:JobProfileComponent},
     {path:'course',component:CourseComponent},
+    {path:'addlocation',component:AddlocationComponent},
+    {path:'addjobprofile',component:AddjobprofileComponent},
+    {path:'addcourse',component:AddcourseComponent}
+    
   ]},
   
   //{path:'addinternship',component:AddinternshipComponent},

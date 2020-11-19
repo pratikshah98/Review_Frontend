@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title">New Course</h4>
+                            <p class="card-category">New Course is being added</p>
+                        </div>
+                        <div class="card-body">
+                            <form class="example-form" (ngSubmit)="onclickAdd()" #f="ngForm">
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Select CourseDuration" ngModel #duration="ngModel" 
+                                            [(ngModel)]="course_duration" name="course_duration">
+                                        <!-- <mat-error *ngIf="duration?.hasError('required')">
+                                            CourseDuration is Required
+                                        </mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                <div class="rows">
+                                     <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Select CourseName" ngModel #name="ngModel" 
+                                            [(ngModel)]="course_name" name="course_name">
+                                        <!-- <mat-error *ngIf="name?.hasError('required')">
+                                            CourseName is Required
+                                        </mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Select CourseStrength" ngModel #strength="ngModel" 
+                                            [(ngModel)]="course_strength" name="course_strength">
+                                        <!-- <mat-error *ngIf="strength?.hasError('required')">
+                                            CourseStrength is Required
+                                        </mat-error> -->
+                                    </mat-form-field>
+                                </div>
+
+                                <br>
+                                <div class="rows">
+                                    <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Add
+                                        Course </button>
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
