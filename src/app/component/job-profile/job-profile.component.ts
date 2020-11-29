@@ -50,6 +50,15 @@ export class JobProfileComponent implements OnInit {
     }
 
   }
+  OnEdit(profile_id){
+    this.route.navigate(['menu/updateprofile',profile_id]);
+  }
+  onDelete(item){
+    this.adminService.deleteCourse(item.job_profile_id).subscribe((data:any)=>{
+      this.jobProfile_arr.splice(this.jobProfile_arr.indexOf(item),1);
+      this.jobProfileDataSource.data=this.jobProfile_arr
+    });
+  }
   Selected_delete()
   {
 

@@ -24,7 +24,7 @@ export class CourseComponent implements OnInit {
   pageEvent: PageEvent;
   course_arr:  courseClass[]= [];
   constructor(private route:Router,private adminService:AdminService) { }
-  displayedColumns: string[] = ['course_duration','course_name','course_strength','Action'];
+  displayedColumns: string[] = ['course_id','course_duration','course_name','course_strength','Action'];
 
   ngOnInit(): void {
     this.flag=true;
@@ -51,6 +51,19 @@ export class CourseComponent implements OnInit {
       this.flag=true;
     }
 
+  }
+  onDelete(item){
+    this.adminService.deleteCourse(item.course_id).subscribe((data:any)=>{
+      alert("Course is deleted");
+      this.course_arr.splice(this.course_arr.indexOf(item),1);
+      
+      this.courseDataSource.data=this.course_arr;
+    },(err:any)=>{
+      alert("Error in server");
+    })
+  }
+  onEdit(course_id){
+    this.route.navigate(['menu/Updatecourse',course_id]);
   }
   Selected_delete()
   {

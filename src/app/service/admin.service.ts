@@ -9,12 +9,12 @@ const httpOptions = {
 })
 
 export class AdminService {
-  private locationUrl=url.endPoints+"location";
+  private locationUrl=url.endPoints+"location/";
   private facultyUrl=url.endPoints+"faculty";
-  private jobProfileUrl=url.endPoints+"job_profile";
+  private jobProfileUrl=url.endPoints+"job_profile/";
   private studentUrl=url.endPoints+"student";
-  private companyUrl=url.endPoints+"company";
-  private courseUrl=url.endPoints+"course";
+  private companyUrl=url.endPoints+"company/";
+  private courseUrl=url.endPoints+"course/";
   private internshipUrl=url.endPoints+"internship";
   constructor(private _http:HttpClient) { }
   getAllLocation()
@@ -40,6 +40,18 @@ export class AdminService {
   getAllStudent()
   {
     return this._http.get(this.studentUrl);
+  }
+  getCompanyById(id){
+    return this._http.get(this.companyUrl+id);
+  }
+  getCourseById(id){
+    return this._http.get(this.courseUrl+id);
+  }
+  getProfileById(id){
+    return this._http.get(this.jobProfileUrl+id);
+  }
+  getLocationById(id){
+    return this._http.get(this.locationUrl+id);
   }
   addLocation(item)
   {
@@ -77,4 +89,30 @@ export class AdminService {
     let body=JSON.stringify(item);
     return this._http.post(this.internshipUrl,body,httpOptions);
   }
+  updateCompany(id,item){
+    let body=JSON.stringify(item);
+    return this._http.put(this.companyUrl+id,body,httpOptions);
+  }
+  updateCourse(id,item){
+    let body=JSON.stringify(item);
+    return this._http.put(this.courseUrl+id,body,httpOptions);
+  }
+  updateProfile(id,item){
+    let body=JSON.stringify(item);
+    return this._http.put(this.jobProfileUrl+id,body,httpOptions);
+  }
+  updateLocation(id,item){
+    let body=JSON.stringify(item);
+    return this._http.put(this.locationUrl+id,body,httpOptions);
+  }
+  deleteCourse(id){
+    return this._http.delete(this.courseUrl+id);
+  }
+  deleteProfile(id){
+    return this._http.delete(this.jobProfileUrl+id);
+  }
+  deleteLocation(id){
+    return this._http.delete(this.locationUrl+id);
+  }
+  
 }

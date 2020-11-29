@@ -42,6 +42,10 @@ import { JobProfileComponent } from './component/job-profile/job-profile.compone
 import { AddlocationComponent } from './component/addlocation/addlocation.component';
 import { AddjobprofileComponent } from './component/addjobprofile/addjobprofile.component';
 import { AddcourseComponent } from './component/addcourse/addcourse.component';
+import { UpdateCompanyDetailsComponent } from './component/company/update-company-details/update-company-details.component';
+import { UpdateCourseDetailsComponent } from './component/course/update-course-details/update-course-details.component';
+import { UpdateJobProfileComponent } from './component/job-profile/update-job-profile/update-job-profile.component';
+import { UpdateLocationComponent } from './component/location/update-location/update-location.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +66,11 @@ import { AddcourseComponent } from './component/addcourse/addcourse.component';
     JobProfileComponent,
     AddlocationComponent,
     AddjobprofileComponent,
-    AddcourseComponent
+    AddcourseComponent,
+    UpdateCompanyDetailsComponent,
+    UpdateCourseDetailsComponent,
+    UpdateJobProfileComponent,
+    UpdateLocationComponent
   ],
   imports: [
     BrowserModule,

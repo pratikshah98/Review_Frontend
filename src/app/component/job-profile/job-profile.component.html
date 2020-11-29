@@ -39,9 +39,11 @@
             
             <ng-container matColumnDef="Action">
               <th mat-header-cell *matHeaderCellDef> Action </th>
-              <td mat-cell *matCellDef=""> 
-                <button mat-mini-fab color="basic">
+              <td mat-cell *matCellDef="let item"> 
+                <button mat-mini-fab color="basic" (click)="onDelete(item.job_profile_id)">
                   <mat-icon>delete</mat-icon>
+                </button> &nbsp; <button mat-mini-fab color="basic" (click)="OnEdit(item.job_profile_id)">
+                  <mat-icon>edit</mat-icon>
                 </button> </td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -52,9 +54,9 @@
     </div>
     <div class="row">
       <div class="col-md-4">
-        <button mat-raised-button color="warn" (click)="Selected_delete()">
+        <!-- <button mat-raised-button color="warn" (click)="Selected_delete()">
           <mat-icon>delete</mat-icon> Delete All
-        </button>
+        </button> -->
       </div>
   
       <div class="col-md-8">

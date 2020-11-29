@@ -17,6 +17,11 @@ import { JobProfileComponent } from './component/job-profile/job-profile.compone
 import { AddlocationComponent } from './component/addlocation/addlocation.component';
 import { AddjobprofileComponent } from './component/addjobprofile/addjobprofile.component';
 import { AddcourseComponent } from './component/addcourse/addcourse.component';
+import { UpdateCompanyDetailsComponent } from './component/company/update-company-details/update-company-details.component';
+import { UpdateCourseDetailsComponent } from './component/course/update-course-details/update-course-details.component';
+import { UpdateJobProfileComponent } from './component/job-profile/update-job-profile/update-job-profile.component';
+import { UpdateLocationComponent } from './component/location/update-location/update-location.component';
+
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'card',component:CardComponent},
@@ -26,12 +31,16 @@ const routes: Routes = [
     {path:'faculty',component:FacultyComponent},
     {path:'company',component:CompanyComponent},
     {path:'addcompany',component:AddcompanyComponent},
+    {path:'updatecompany/:id',component:UpdateCompanyDetailsComponent},
     {path:'addinternship',component:AddinternshipComponent},
     {path:'addstudent',component:AddstudentComponent},
     {path:'addfaculty',component:AddfacultyComponent},
     {path:'location',component:LocationComponent},
+    {path:'updatelocation/:id',component:UpdateLocationComponent},
     {path:'jobprofile',component:JobProfileComponent},
+    {path:'updateprofile/:id',component:UpdateJobProfileComponent},
     {path:'course',component:CourseComponent},
+    {path:'Updatecourse/:id',component:UpdateCourseDetailsComponent},
     {path:'addlocation',component:AddlocationComponent},
     {path:'addjobprofile',component:AddjobprofileComponent},
     {path:'addcourse',component:AddcourseComponent}

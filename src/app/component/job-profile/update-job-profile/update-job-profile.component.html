@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title">Edit Job Profile</h4>
+                            <p class="card-category">Job Profile Details are being updated</p>
+                        </div>
+                        <div class="card-body">
+                            <form class="example-form" (ngSubmit)="onclickSave()" #f="ngForm">
+                                
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Profile name" ngModel #strength="ngModel" 
+                                            [(ngModel)]="Profile_Name" name="Profile_Name">
+                                        <!-- <mat-error *ngIf="strength?.hasError('required')">
+                                            Company Url is Required
+                                        </mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                
+                                <br>
+                                <div class="rows">
+                                    <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Save
+                                     </button>
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

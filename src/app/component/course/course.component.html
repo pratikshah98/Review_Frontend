@@ -28,6 +28,10 @@
     <div class="table-responsive">
       <table mat-table [dataSource]="courseDataSource" matSort multiTemplateDataRows>
         <tbody>
+          <ng-container matColumnDef="course_id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Course ID</th>
+            <td mat-cell *matCellDef="let item"> {{item.course_id}} </td>
+          </ng-container>
           <ng-container matColumnDef="course_duration">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Course Duration</th>
             <td mat-cell *matCellDef="let item"> {{item.course_duration}} </td>
@@ -43,9 +47,11 @@
           
           <ng-container matColumnDef="Action">
             <th mat-header-cell *matHeaderCellDef> Action </th>
-            <td mat-cell *matCellDef=""> 
-              <button mat-mini-fab color="basic">
+            <td mat-cell *matCellDef="let item"> 
+              <button mat-mini-fab color="basic" (click)="onDelete(item)" title="Delete Course Detail" >
                 <mat-icon>delete</mat-icon>
+              </button> &nbsp; <button mat-mini-fab color="basic" title="Edit Course Detail" (click)="onEdit(item.course_id)">
+                <mat-icon>edit</mat-icon>
               </button> </td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -56,9 +62,9 @@
   </div>
   <div class="row">
     <div class="col-md-4">
-      <button mat-raised-button color="warn" (click)="Selected_delete()">
+      <!-- <button mat-raised-button color="warn" (click)="Selected_delete()">
         <mat-icon>delete</mat-icon> Delete All
-      </button>
+      </button> -->
     </div>
 
     <div class="col-md-8">

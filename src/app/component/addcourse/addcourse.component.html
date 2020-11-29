@@ -12,6 +12,15 @@
                             <form class="example-form" (ngSubmit)="onclickAdd()" #f="ngForm">
                                 <div class="rows">
                                     <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Course ID" ngModel #duration="ngModel" 
+                                            [(ngModel)]="course_id" name="course_id">
+                                        <!-- <mat-error *ngIf="duration?.hasError('required')">
+                                            CourseDuration is Required
+                                        </mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
                                         <input matInput placeholder="Select CourseDuration" ngModel #duration="ngModel" 
                                             [(ngModel)]="course_duration" name="course_duration">
                                         <!-- <mat-error *ngIf="duration?.hasError('required')">

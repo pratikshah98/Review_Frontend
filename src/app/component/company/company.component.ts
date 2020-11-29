@@ -6,6 +6,7 @@ import { MatSort } from "@angular/material/sort";
 import { MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { AdminService } from "../../service/admin.service";
 import { companyClass } from "../../classes/company";
+import { combineAll } from 'rxjs/operators';
 @Component({
   selector: 'app-company',
   templateUrl: './company.component.html',
@@ -49,6 +50,10 @@ export class CompanyComponent implements OnInit {
       this.flag=true;
     }
 
+  }
+  OnEdit(company_id){
+    console.log(company_id);
+    this.route.navigate(['menu/updatecompany',company_id]);
   }
   Selected_delete()
   {

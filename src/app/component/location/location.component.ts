@@ -50,6 +50,15 @@ export class LocationComponent implements OnInit {
     }
 
   }
+  onEdit(location_id){
+    this.route.navigate(['menu/updatelocation',location_id])
+  }
+  onDelete(item){
+    this.adminService.deleteLocation(item.location_id).subscribe((data:any)=>{
+      this.location_arr.splice(this.location_arr.indexOf(item),1);
+      this.locationDataSource.data=this.location_arr;
+    })
+  }
   Selected_delete()
   {
 
