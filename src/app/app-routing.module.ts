@@ -21,12 +21,24 @@ import { UpdateCompanyDetailsComponent } from './component/company/update-compan
 import { UpdateCourseDetailsComponent } from './component/course/update-course-details/update-course-details.component';
 import { UpdateJobProfileComponent } from './component/job-profile/update-job-profile/update-job-profile.component';
 import { UpdateLocationComponent } from './component/location/update-location/update-location.component';
+import { ReviewComponent } from './component/review/review.component';
+import { InternshipTypeComponent } from './component/internship-type/internship-type.component';
+import { StudentmenuComponent } from './studentcomponent/studentmenu/studentmenu.component';
+import { WriteReviewComponent } from './studentcomponent/write-review/write-review.component';
+import { ReadReviewComponent } from './studentcomponent/read-review/read-review.component';
+import { UpdateInternshipTypeComponent } from './component/internship-type/update-internship-type/update-internship-type.component';
+import { UpdateReviewComponent } from './component/review/update-review/update-review.component';
+import { UpdateInternshipDetailsComponent } from './component/internship-details/update-internship-details/update-internship-details.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
-  {path:'card',component:CardComponent},
   {path:'menu',component:MenuComponent,children:[
+    {path:'internshipType',component:InternshipTypeComponent},
+    {path:'updateintenshiptype/:id',component:UpdateInternshipTypeComponent},
+    {path:'review',component:ReviewComponent},
+    {path:'updatereview/:id',component:UpdateReviewComponent},
     {path:'internship',component:InternshipDetailsComponent},
+    {path:'updateintenshipdetail/:id',component:UpdateInternshipDetailsComponent},
     {path:'student',component:StudentComponent},
     {path:'faculty',component:FacultyComponent},
     {path:'company',component:CompanyComponent},
@@ -45,9 +57,12 @@ const routes: Routes = [
     {path:'addjobprofile',component:AddjobprofileComponent},
     {path:'addcourse',component:AddcourseComponent}
     
-  ]},
-  
-  //{path:'addinternship',component:AddinternshipComponent},
+  ]},  
+  {path:'studentmenu',component:StudentmenuComponent,children:[
+    {path:'card',component:CardComponent},
+    {path:'writeReview',component:WriteReviewComponent},
+    {path:'readReview',component:ReadReviewComponent},
+  ]},  
 ];
 
 @NgModule({

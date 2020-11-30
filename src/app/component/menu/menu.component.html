@@ -49,6 +49,16 @@
           </button>
         </li>
         <li>
+          <button class="menu_button" mat-button [routerLink]="['review']" routerLinkActive="router-link-active">
+            <i class="material-icons">event</i>&nbsp;&nbsp;&nbsp; Review
+          </button>
+        </li>
+        <li>
+          <button class="menu_button" mat-button [routerLink]="['internshipType']" routerLinkActive="router-link-active">
+            <i class="material-icons">event</i>&nbsp;&nbsp;&nbsp; Intenship Type
+          </button>
+        </li>
+        <li>
           <button class="menu_button" mat-button routerLinkActive="router-link-active">
             <i class="material-icons">exit_to_app</i>&nbsp;&nbsp;&nbsp; Log out
           </button>
@@ -59,11 +69,14 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <!-- <span>ARHAM EDUCATION</span> -->
-
     </mat-toolbar>
 
     <router-outlet></router-outlet>

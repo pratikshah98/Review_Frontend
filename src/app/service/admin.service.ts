@@ -15,8 +15,24 @@ export class AdminService {
   private studentUrl=url.endPoints+"student";
   private companyUrl=url.endPoints+"company/";
   private courseUrl=url.endPoints+"course/";
-  private internshipUrl=url.endPoints+"internship";
+  private internshipUrl=url.endPoints+"internship/";
+  private reviewUrl = url.endPoints+"review/";
+  private internshipTypeUrl = url.endPoints+"internshipType/";
   constructor(private _http:HttpClient) { }
+/*********************************** GET *****************************************/
+
+  getAllInternship()
+  {
+    return this._http.get(this.internshipUrl);
+  }
+  getAllInternshipType()
+  {
+    return this._http.get(this.internshipTypeUrl);
+  }
+  getAllReview()
+  {
+    return this._http.get(this.reviewUrl);
+  }
   getAllLocation()
   {
     return this._http.get(this.locationUrl);
@@ -41,6 +57,16 @@ export class AdminService {
   {
     return this._http.get(this.studentUrl);
   }
+/*********************************** GET BY ID *****************************************/  
+  getInternshipTypeById(id){
+    return this._http.get(this.internshipTypeUrl+id);
+  }
+  getInternshipById(id){
+    return this._http.get(this.internshipUrl+id);
+  }
+  getReviewById(id){
+    return this._http.get(this.reviewUrl+id);
+  }
   getCompanyById(id){
     return this._http.get(this.companyUrl+id);
   }
@@ -53,10 +79,11 @@ export class AdminService {
   getLocationById(id){
     return this._http.get(this.locationUrl+id);
   }
+/*********************************** POST *****************************************/
+
   addLocation(item)
   {
     let body=JSON.stringify(item);
-   // console.log(body);
     return this._http.post(this.locationUrl,body,httpOptions);
   }
   addJobProfile(item)
@@ -89,6 +116,20 @@ export class AdminService {
     let body=JSON.stringify(item);
     return this._http.post(this.internshipUrl,body,httpOptions);
   }
+
+  /*********************************** PUT *****************************************/
+  updateIntenshipType(id,item){
+    let body=JSON.stringify(item);
+    return this._http.put(this.internshipTypeUrl+id,body,httpOptions);
+  }
+  updateIntenship(id,item){
+    let body=JSON.stringify(item);
+    return this._http.put(this.internshipUrl+id,body,httpOptions);
+  }
+  updateReview(id,item){
+    let body=JSON.stringify(item);
+    return this._http.put(this.reviewUrl+id,body,httpOptions);
+  }
   updateCompany(id,item){
     let body=JSON.stringify(item);
     return this._http.put(this.companyUrl+id,body,httpOptions);
@@ -104,6 +145,11 @@ export class AdminService {
   updateLocation(id,item){
     let body=JSON.stringify(item);
     return this._http.put(this.locationUrl+id,body,httpOptions);
+  }
+
+/*********************************** DELETE *****************************************/
+  deleteInternshiptype(id){
+    return this._http.delete(this.internshipTypeUrl+id);
   }
   deleteCourse(id){
     return this._http.delete(this.courseUrl+id);

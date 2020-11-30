@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title">Edit Review</h4>
+                            <p class="card-category">Review Details are being updated</p>
+                        </div>
+                        <div class="card-body">
+                            <form class="example-form" (ngSubmit)="onclickSave()" #f="ngForm">
+                                
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Cons" ngModel #strength="ngModel" 
+                                            [(ngModel)]="cons" name="cons">
+                                    </mat-form-field>
+                                </div>
+                                <br>
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Pros" ngModel #strength="ngModel" 
+                                            [(ngModel)]="pros" name="pros">
+                                    </mat-form-field>
+                                </div>
+                                <br>
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Review Title" ngModel #strength="ngModel" 
+                                            [(ngModel)]="review_title" name="review_title">
+                                    </mat-form-field>
+                                </div>
+                                <br>
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Rating" ngModel #strength="ngModel" 
+                                            [(ngModel)]="rating" name="rating">
+                                    </mat-form-field>
+                                </div>
+                                <br>
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Review Date" ngModel #strength="ngModel" 
+                                            [(ngModel)]="review_date" name="review_date">
+                                    </mat-form-field>
+                                </div>
+                                <br>
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Review Description" ngModel #strength="ngModel" 
+                                            [(ngModel)]="review_description" name="review_description">
+                                    </mat-form-field>
+                                </div>
+                                <br>
+
+                                <div class="rows">
+                                    <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Save
+                                     </button>
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

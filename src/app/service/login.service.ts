@@ -8,13 +8,17 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class LoginService {
-  private baseUrl= url.endPoints+'login';
-  
+  private studentUrl= url.endPoints+'login';
+  private adminUrl= url.endPoints+'adminLogin';
   constructor(private _http:HttpClient) { }
+  adminLogin(item)
+  {
+    let body=JSON.stringify(item);
+    return this._http.post(this.adminUrl,body,httpOptions);
+  }
   studentLogin(item)
   {
     let body=JSON.stringify(item);
-   // console.log(body);
-    return this._http.post(this.baseUrl,body,httpOptions);
+    return this._http.post(this.studentUrl,body,httpOptions);
   }
 }

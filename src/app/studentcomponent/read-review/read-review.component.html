@@ -1,0 +1,51 @@
+<br>
+<div style="text-align: center;">
+  <h1>Read Reviews</h1>
+</div>
+<div style="text-align: center;" *ngIf="!reviews.length">
+  <h1 style="text-decoration: underline;">NO RESULTS FOUND</h1>
+</div>
+<div class="container" *ngIf="reviews.length">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let review of reviews">
+      <br>
+      <mat-card class="example-card">
+        <mat-card-content>
+          <mat-card-title>
+            <h4>{{review.review_title}}</h4>
+          </mat-card-title>
+
+          <br>
+          <mat-card-subtitle>
+            <label>Description:</label>
+            {{review.review_description}}
+          </mat-card-subtitle>
+
+          <mat-card-subtitle>
+           <b> <label>Pros:</label></b>
+           {{review.pros}}
+          </mat-card-subtitle>
+
+          <mat-card-subtitle>
+            <b> <label>Cons:</label></b>
+            {{review.cons}}
+           </mat-card-subtitle>
+
+           <mat-card-subtitle>
+            <b> <label>Review Date:</label></b>
+            {{review.review_date | date}}
+           </mat-card-subtitle>
+
+           <mat-card-subtitle>
+            <b> <label>Rating:</label></b>
+            {{review.rating}}
+           </mat-card-subtitle>
+
+          <button mat-raised-button color="primary">Report Review</button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+

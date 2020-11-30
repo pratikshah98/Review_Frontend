@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title">Edit Internship Detail</h4>
+                            <p class="card-category">Internship Details are being updated</p>
+                        </div>
+                        <div class="card-body">
+                            <form class="example-form" (ngSubmit)="onclickSave()" #f="ngForm">
+                                
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Added On" ngModel #strength="ngModel" 
+                                            [(ngModel)]="added_on" name="added_on">
+                                    </mat-form-field>
+                                </div>
+                                <br>
+
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="ctc" ngModel #strength="ngModel" 
+                                            [(ngModel)]="ctc" name="ctc">
+                                    </mat-form-field>
+                                </div>
+                                <br>
+
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Start Date" ngModel #strength="ngModel" 
+                                            [(ngModel)]="start_date" name="start_date">
+                                    </mat-form-field>
+                                </div>
+                                <br>
+
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Stipend" ngModel #strength="ngModel" 
+                                            [(ngModel)]="stipend" name="stipend">
+                                    </mat-form-field>
+                                </div>
+                                <br>
+
+                                <div class="rows">
+                                    <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Save
+                                     </button>
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

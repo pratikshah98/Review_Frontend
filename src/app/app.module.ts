@@ -46,6 +46,14 @@ import { UpdateCompanyDetailsComponent } from './component/company/update-compan
 import { UpdateCourseDetailsComponent } from './component/course/update-course-details/update-course-details.component';
 import { UpdateJobProfileComponent } from './component/job-profile/update-job-profile/update-job-profile.component';
 import { UpdateLocationComponent } from './component/location/update-location/update-location.component';
+import { ReviewComponent } from './component/review/review.component';
+import { InternshipTypeComponent } from './component/internship-type/internship-type.component';
+import { WriteReviewComponent } from './studentcomponent/write-review/write-review.component';
+import { ReadReviewComponent } from './studentcomponent/read-review/read-review.component';
+import { StudentmenuComponent } from './studentcomponent/studentmenu/studentmenu.component';
+import { UpdateInternshipTypeComponent } from './component/internship-type/update-internship-type/update-internship-type.component';
+import { UpdateReviewComponent } from './component/review/update-review/update-review.component';
+import { UpdateInternshipDetailsComponent } from './component/internship-details/update-internship-details/update-internship-details.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +78,15 @@ import { UpdateLocationComponent } from './component/location/update-location/up
     UpdateCompanyDetailsComponent,
     UpdateCourseDetailsComponent,
     UpdateJobProfileComponent,
-    UpdateLocationComponent
+    UpdateLocationComponent,
+    ReviewComponent,
+    InternshipTypeComponent,
+    WriteReviewComponent,
+    ReadReviewComponent,
+    StudentmenuComponent,
+    UpdateInternshipTypeComponent,
+    UpdateReviewComponent,
+    UpdateInternshipDetailsComponent
   ],
   imports: [
     BrowserModule,
