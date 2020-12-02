@@ -9,10 +9,22 @@ const httpOptions = {
 })
 export class StudentService {
   private reviewUrl = url.endPoints+"review/";
+  private studentUrl = url.endPoints+"student/";
   constructor(private _http:HttpClient) { }
   /*********************************** GET *****************************************/
   getAllReview()
   {
     return this._http.get(this.reviewUrl);
   }
+  /*********************************** GET BY ID *****************************************/  
+  getStudentById(id){
+    return this._http.get(this.studentUrl+id);
+  }
+  /*********************************** POST *****************************************/
+  addReview(item)
+  {
+    let body=JSON.stringify(item);
+    return this._http.post(this.reviewUrl,body,httpOptions);
+  }
+
 }

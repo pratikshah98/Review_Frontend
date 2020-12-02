@@ -48,19 +48,19 @@
                                     </mat-form-field>
                                 </div>
                                 <div class="rows">
-                                 
+                                
                                     <mat-form-field class="example-full-width">
-                      <mat-select placeholder="Select CourseId" (selectionChange)="selectChangeHandler()" required #courseid="ngModel" name="courseid"
-                        [(ngModel)]="course_id" >
-                        <mat-option *ngFor="let item of course_arr" [value]="item.course_id"  class="example-full-width1">
-                          {{item.course_name}}
-                        </mat-option>
-                      </mat-select>
-                      <!-- <mat-error *ngIf="subject.hasError('required')">
-                        Subject Must be selected
-                      </mat-error> -->
-                    </mat-form-field>
-
+                                        <mat-select placeholder="Select CourseId" (selectionChange)="selectChangeHandler()" required #courseid="ngModel"
+                                            name="courseid" [(ngModel)]="course_id">
+                                            <mat-option *ngFor="let item of course_arr" [value]="item.course_id" class="example-full-width1">
+                                                {{item.course_name}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <!-- <mat-error *ngIf="subject.hasError('required')">
+                                                        Subject Must be selected
+                                                      </mat-error> -->
+                                    </mat-form-field>
+                                
                                 </div>
                                 <div class="rows">
                                     <mat-form-field class="example-full-width">

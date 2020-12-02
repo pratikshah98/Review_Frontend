@@ -37,7 +37,7 @@ export class ReviewComponent implements OnInit {
   }
   onAddReview()
   {
-    this.route.navigate(['menu/addlocation']);
+    this.route.navigate(['menu/addreview']);
   }
   applyFilter(filterValue: string) {
     this.reviewDataSource.filter = filterValue.trim().toLowerCase();

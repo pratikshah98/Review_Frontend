@@ -38,9 +38,9 @@ export class UpdateReviewComponent implements OnInit {
       alert("Fill the details correctly");
     }
     else{
-      this._adminser.updateReview(this.review_id,new review_class(this.cons,this.pros,this.rating,this.review_date,this.review_description,this.review_title,this.internshipId)).subscribe((data:any)=>{
-        this._router.navigate(['menu/review']);
-      })
+      // this._adminser.updateReview(this.review_id,new review_class(this.cons,this.pros,this.rating,this.review_date,this.review_description,this.review_title,this.internshipId)).subscribe((data:any)=>{
+      //   this._router.navigate(['menu/review']);
+      // })
     }
     
   }

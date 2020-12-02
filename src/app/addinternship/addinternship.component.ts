@@ -17,12 +17,17 @@ import { AdminService } from 'src/app/service/admin.service';
   styleUrls: ['./addinternship.component.css']
 })
 export class AddinternshipComponent implements OnInit {
-  student_id:number;
-  student_email:string;
-  student_contact_no:string;
-  student_name:string;
-  course_id:number;
-student_password:string;  
+  internship_id:number;
+  added_on:Date;
+  ctc:number;
+  start_date:Date;
+  stipend:number;
+  company_id:number;
+  faculty_id:number;
+  internship_type_id:number;
+  job_profile_id:number;
+  location_id:number;
+  student_id:number; 
 
   constructor(private _route:Router,private _adminService:AdminService) { }
   onclickAdd()

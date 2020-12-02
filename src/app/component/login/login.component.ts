@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
         (data:any) => {
           if(data.length==1)
           {
+            localStorage.setItem('email',username);
             this._router.navigate(['studentmenu']);
           }
           else{
@@ -41,6 +42,7 @@ export class LoginComponent implements OnInit {
               (admindata:any)=> {
                 if(admindata.length==1)
                 {
+                  localStorage.setItem('email',username);
                   this._router.navigate(['menu']);
                 }
                 else{

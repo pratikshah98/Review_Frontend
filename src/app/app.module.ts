@@ -54,6 +54,8 @@ import { StudentmenuComponent } from './studentcomponent/studentmenu/studentmenu
 import { UpdateInternshipTypeComponent } from './component/internship-type/update-internship-type/update-internship-type.component';
 import { UpdateReviewComponent } from './component/review/update-review/update-review.component';
 import { UpdateInternshipDetailsComponent } from './component/internship-details/update-internship-details/update-internship-details.component';
+import { AddinternshiptypeComponent } from './component/addinternshiptype/addinternshiptype.component';
+
 
 @NgModule({
   declarations: [
@@ -86,7 +88,9 @@ import { UpdateInternshipDetailsComponent } from './component/internship-details
     StudentmenuComponent,
     UpdateInternshipTypeComponent,
     UpdateReviewComponent,
-    UpdateInternshipDetailsComponent
+    UpdateInternshipDetailsComponent,
+    AddinternshiptypeComponent,
+   
   ],
   imports: [
     BrowserModule,

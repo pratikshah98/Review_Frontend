@@ -18,6 +18,7 @@ export class AdminService {
   private internshipUrl=url.endPoints+"internship/";
   private reviewUrl = url.endPoints+"review/";
   private internshipTypeUrl = url.endPoints+"internshipType/";
+  private adminUrl= url.endPoints+'admin';
   constructor(private _http:HttpClient) { }
 /*********************************** GET *****************************************/
 
@@ -56,6 +57,10 @@ export class AdminService {
   getAllStudent()
   {
     return this._http.get(this.studentUrl);
+  }
+  getAllAdmin()
+  {
+    return this._http.get(this.adminUrl);
   }
 /*********************************** GET BY ID *****************************************/  
   getInternshipTypeById(id){
@@ -116,7 +121,13 @@ export class AdminService {
     let body=JSON.stringify(item);
     return this._http.post(this.internshipUrl,body,httpOptions);
   }
+  addInternshipType(item)
+  {
+    let body=JSON.stringify(item);
+    return this._http.post(this.internshipTypeUrl,body,httpOptions);
+  }
 
+  
   /*********************************** PUT *****************************************/
   updateIntenshipType(id,item){
     let body=JSON.stringify(item);

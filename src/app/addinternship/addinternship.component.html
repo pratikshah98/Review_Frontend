@@ -1,73 +1,161 @@
 <div class="container">
-  <div class="content">
-      <div class="container-fluid">
-          <div class="row">
-              <div class="col-md-8">
-                  <div class="card">
-                      <div class="card-header card-header-primary">
-                          <h4 class="card-title">New Student</h4>
-                          <p class="card-category">New Student is being added</p>
-                      </div>
-                      <div class="card-body">
-                          <form class="example-form" (ngSubmit)="onclickAdd()" #f="ngForm">
-                              <div class="rows">
-                                  <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="StudentEmail" ngModel #email="ngModel" required
-                                          [(ngModel)]="student_email" name="student_email">
-                                      <mat-error *ngIf="email?.hasError('required')">
-                                          StudentEmail is Required
-                                      </mat-error>
-                                  </mat-form-field>
-                              </div>
-                              <div class="rows">
-                                   <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="StudentContact" ngModel #contact="ngModel" required
-                                          [(ngModel)]="student_contact_no" name="student_contact_no">
-                                      <mat-error *ngIf="contact?.hasError('required')">
-                                          StudentContact is Required
-                                      </mat-error>
-                                  </mat-form-field>
-                              </div>
-                              <div class="rows">
-                                  <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="CourseStrength" ngModel #strength="ngModel" required
-                                          [(ngModel)]="student_name" name="student_name">
-                                      <mat-error *ngIf="strength?.hasError('required')">
-                                          StudentName is Required
-                                      </mat-error>
-                                  </mat-form-field>
-                              </div>
-                              <div class="rows">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="CourseId" ngModel #course="ngModel" required
-                                        [(ngModel)]="course_id" name="course_id">
-                                    <mat-error *ngIf="course?.hasError('required')">
-                                        CoourseId is Required
-                                    </mat-error>
-                                </mat-form-field>
-                            </div>
-                            <div class="rows">
-                              <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="StudentPassword" ngModel #password="ngModel" required
-                                      [(ngModel)]="student_password" name="student_password">
-                                  <mat-error *ngIf="password?.hasError('required')">
-                                      StudentPassword is Required
-                                  </mat-error>
-                              </mat-form-field>
-                          </div>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title">Add Internship Detail</h4>
+                            <p class="card-category">Internship Details are being Added</p>
+                        </div>
+                        <div class="card-body">
+                            <form class="example-form" (ngSubmit)="onclickAdd()" #f="ngForm">
 
-                              <br>
-                              <div class="rows">
-                                  <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Add
-                                      Course </button>
-                                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                  <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
-                              </div>
-                          </form>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput type="date" placeholder="Added On" ngModel #strength="ngModel"
+                                            [(ngModel)]="added_on" name="added_on">
+                                    </mat-form-field>
+                                </div>
+                                <br>
+
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="ctc" ngModel #strength="ngModel" [(ngModel)]="ctc"
+                                            name="ctc">
+                                    </mat-form-field>
+                                </div>
+                                <br>
+
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput type="date" placeholder="Start Date" ngModel #strength="ngModel"
+                                            [(ngModel)]="start_date" name="start_date">
+                                    </mat-form-field>
+                                </div>
+                                <br>
+
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Stipend" ngModel #strength="ngModel"
+                                            [(ngModel)]="stipend" name="stipend">
+                                    </mat-form-field>
+                                </div>
+                                <br>
+
+                                <!-- <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select placeholder="Select CourseId"
+                                            (selectionChange)="selectChangeHandler()" required #courseid="ngModel"
+                                            name="courseid" [(ngModel)]="course_id">
+                                            <mat-option *ngFor="let item of course_arr" [value]="item.course_id"
+                                                class="example-full-width1">
+                                                {{item.course_name}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="subject.hasError('required')">
+                                            Subject Must be selected
+                                       </mat-error>
+                                    </mat-form-field>
+                                 </div>
+                                 <br>
+
+                                 <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select placeholder="Select CourseId"
+                                            (selectionChange)="selectChangeHandler()" required #courseid="ngModel"
+                                            name="courseid" [(ngModel)]="course_id">
+                                            <mat-option *ngFor="let item of course_arr" [value]="item.course_id"
+                                                class="example-full-width1">
+                                                {{item.course_name}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="subject.hasError('required')">
+                                            Subject Must be selected
+                                       </mat-error>
+                                    </mat-form-field>
+                                 </div>
+                                 <br>
+
+                                 <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select placeholder="Select CourseId"
+                                            (selectionChange)="selectChangeHandler()" required #courseid="ngModel"
+                                            name="courseid" [(ngModel)]="course_id">
+                                            <mat-option *ngFor="let item of course_arr" [value]="item.course_id"
+                                                class="example-full-width1">
+                                                {{item.course_name}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="subject.hasError('required')">
+                                            Subject Must be selected
+                                       </mat-error>
+                                    </mat-form-field>
+                                 </div>
+
+                                 <br>
+                                 <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select placeholder="Select CourseId"
+                                            (selectionChange)="selectChangeHandler()" required #courseid="ngModel"
+                                            name="courseid" [(ngModel)]="course_id">
+                                            <mat-option *ngFor="let item of course_arr" [value]="item.course_id"
+                                                class="example-full-width1">
+                                                {{item.course_name}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="subject.hasError('required')">
+                                            Subject Must be selected
+                                       </mat-error>
+                                    </mat-form-field>
+                                 </div>
+                                 <br>
+
+                                 <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select placeholder="Select CourseId"
+                                            (selectionChange)="selectChangeHandler()" required #courseid="ngModel"
+                                            name="courseid" [(ngModel)]="course_id">
+                                            <mat-option *ngFor="let item of course_arr" [value]="item.course_id"
+                                                class="example-full-width1">
+                                                {{item.course_name}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="subject.hasError('required')">
+                                            Subject Must be selected
+                                       </mat-error>
+                                    </mat-form-field>
+                                 </div>
+                                 <br>
+                                 
+                                 <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select placeholder="Select CourseId"
+                                            (selectionChange)="selectChangeHandler()" required #courseid="ngModel"
+                                            name="courseid" [(ngModel)]="course_id">
+                                            <mat-option *ngFor="let item of course_arr" [value]="item.course_id"
+                                                class="example-full-width1">
+                                                {{item.course_name}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="subject.hasError('required')">
+                                            Subject Must be selected
+                                       </mat-error>
+                                    </mat-form-field>
+                                 </div>
+                                 <br> -->
+
+                                <div class="rows">
+                                    <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Save
+                                    </button>
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

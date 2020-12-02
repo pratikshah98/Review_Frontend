@@ -11,34 +11,78 @@
         <h1>Write a Review</h1>
         <br><br><br>
         <div id="form-wrap">
-            <form>
-                <p>HELLO BUNNY,</p>
-                <label for="title">Title:</label>
-                <input type="text" name="title" value="" id="title">
-
-                <label for="description">Description:</label>
-                <textarea name="desc" id="desc" value="your message"></textarea>
-
-                <label for="pros">Pros:</label>
-                <textarea name="pros" id="pros" value="your internship advantage"></textarea>
-
-                <label for="cons">Cons:</label>
-                <textarea name="cons" id="cons" value="your internship disadvantage"></textarea>
-
-                <label>Rating:</label>
-
-                <select style="background-color:darkslategray;width: 15%;color:whitesmoke" id="rating" name="rating">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
+            <form  #f="ngForm" (ngSubmit)="addform(f)">
+                <p >HELLO {{student_name}},</p>
+              
+                    <label>Title:</label>
+                    <input type="text" [(ngModel)]="review_title" name="review_title" #title="ngModel"
+                        [class.is-invalid]="title.invalid && title.touched" required>
+                    <span *ngIf="title.errors && (title.invalid && title.touched) && title.errors.required"
+                        style="color:red;font-size:12px;margin-top:-5px;">Title is required.</span>
+                
+                <div>
+                    <label>Description:</label>
+                    <textarea name="review_description" [(ngModel)]="review_description" #desc="ngModel"
+                        [class.is-invalid]="desc.invalid && desc.touched" required></textarea>
+                    <span *ngIf="desc.errors && (desc.invalid && desc.touched) && desc.errors.required"
+                        style="color:red;font-size:12px;">Desciption is required.</span>
+                </div>
+                <div>
+                    <label for="pros">Pros:</label>
+                    <textarea name="pros" [(ngModel)]="pros" #pro="ngModel" ></textarea>
+                    <!-- <span *ngIf=" pro.errors && ( pro.invalid &&  pro.touched) &&  pro.errors.required"
+                        style="color:red;font-size:12px;">Pros is required.</span> -->
+                </div>
+                <div>
+                    <label for="cons">Cons:</label>
+                    <textarea name="cons" [(ngModel)]="cons" #con="ngModel" ></textarea>
+                    <!-- <span *ngIf="con.errors && (con.invalid && con.touched) && con.errors.required"
+                        style="color:red;font-size:12px;">Cons is required.</span> -->
+                </div>
+                <div>
+                    <label>Rating:</label>
+                    <input type="number" [(ngModel)]="rating" name="rating" #rat="ngModel"
+                        [class.is-invalid]="rat.invalid && rat.touched" required>
+                    <span *ngIf="rat.errors && (rat.invalid && rat.touched) && rat.errors.required"
+                        style="color:red;font-size:12px;">Rating is required.</span>
+                </div>
+                <!-- <div>
+                    <label>Review Date:</label>
+                    <input type="date" [(ngModel)]="review_date" name="review_date" #date="ngModel"
+                        [class.is-invalid]="date.invalid && date.touched" required>
+                    <span *ngIf="date.errors && (date.invalid && date.touched) && date.errors.required"
+                        style="color:red;font-size:12px;">Date is required.</span>
+                </div> -->
+                <div>
+                    <label>Internship Id:</label>
+                
+                    <select name="internship_id" [(ngModel)]="internship_id" (selectionChange)="selectChangeHandler()" #intid="ngModel"
+                        [class.is-invalid]="intid.invalid && intid.touched" required>
+                        <option *ngFor="let item of internship_arr" [value]="item.internship_id">{{item.internship_id}}</option>
+                
+                    </select>
+                    <span *ngIf="intid.errors && (intid.invalid && intid.touched) && intid.errors.required"
+                        style="color:red;font-size:12px;">InternshipId is required.</span>
+                </div>
+                <div>
+                    <label>Admin Id:</label>
+                
+                    <select name="admin_id" [(ngModel)]="admin_id" (selectionChange)="selectChangeHandler()" #email="ngModel"
+                        [class.is-invalid]="email.invalid && email.touched" required>
+                        <option *ngFor="let item of admin_arr" [value]="item.admin_email">{{item.admin_email}}</option>
+                
+                    </select>
+                    <span *ngIf="email.errors && (email.invalid && email.touched) && email.errors.required"
+                        style="color:red;font-size:12px;">Email is required.</span>
+                </div>
+                </form>
                 <br><br>
-                <input type="submit" name="submitBtn" value="Thank you For Your Response!">
-
-            </form>
+                <!-- <input type="submit" name="submitBtn" value="Thank you For Your Response!"> -->
+                <button type="submit" [disabled]="f.invalid" (click)="onclickAdd()">Add Review</button>
+                <button  (click)="onclickCancel()">Cancel</button>
+           
         </div>
+       
     </div>
 </body>
 

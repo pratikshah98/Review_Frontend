@@ -38,7 +38,7 @@ export class InternshipTypeComponent implements OnInit {
   }
   onAddIntenshipType()
   {
-    this.route.navigate(['menu/addlocation']);
+    this.route.navigate(['menu/addinternshiptype']);
   }
   applyFilter(filterValue: string) {
     this.internshipTypeDataSource.filter = filterValue.trim().toLowerCase();
