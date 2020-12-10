@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
           if(data.length==1)
           {
             localStorage.setItem('email',username);
-            this._router.navigate(['studentmenu']);
+            this._router.navigate(['studentmenu/studentDashboard']);
           }
           else{
             this.loginService.adminLogin(new adminLoginClass(username,password)).subscribe(
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
                 if(admindata.length==1)
                 {
                   localStorage.setItem('email',username);
-                  this._router.navigate(['menu']);
+                  this._router.navigate(['menu/adminDashboard']);
                 }
                 else{
                   alert('Email_id or Password Incorrect');

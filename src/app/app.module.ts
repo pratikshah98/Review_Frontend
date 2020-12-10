@@ -55,6 +55,9 @@ import { UpdateInternshipTypeComponent } from './component/internship-type/updat
 import { UpdateReviewComponent } from './component/review/update-review/update-review.component';
 import { UpdateInternshipDetailsComponent } from './component/internship-details/update-internship-details/update-internship-details.component';
 import { AddinternshiptypeComponent } from './component/addinternshiptype/addinternshiptype.component';
+import { DashboardComponent } from './studentcomponent/dashboard/dashboard.component';
+import { SelectionPageComponent } from './studentcomponent/selection-page/selection-page.component';
+import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
@@ -90,6 +93,9 @@ import { AddinternshiptypeComponent } from './component/addinternshiptype/addint
     UpdateReviewComponent,
     UpdateInternshipDetailsComponent,
     AddinternshiptypeComponent,
+    DashboardComponent,
+    SelectionPageComponent,
+    AdminDashboardComponent,
    
   ],
   imports: [

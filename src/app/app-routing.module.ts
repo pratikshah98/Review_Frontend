@@ -30,11 +30,14 @@ import { UpdateInternshipTypeComponent } from './component/internship-type/updat
 import { UpdateReviewComponent } from './component/review/update-review/update-review.component';
 import { UpdateInternshipDetailsComponent } from './component/internship-details/update-internship-details/update-internship-details.component';
 import { AddinternshiptypeComponent } from './component/addinternshiptype/addinternshiptype.component';
-
+import { DashboardComponent } from './studentcomponent/dashboard/dashboard.component';
+import { SelectionPageComponent } from './studentcomponent/selection-page/selection-page.component';
+import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'menu',component:MenuComponent,children:[
+    {path:'adminDashboard',component:AdminDashboardComponent},
     {path:'internshipType',component:InternshipTypeComponent},
     {path:'updateintenshiptype/:id',component:UpdateInternshipTypeComponent},
     {path:'review',component:ReviewComponent},
@@ -64,8 +67,10 @@ const routes: Routes = [
   ]},  
   {path:'studentmenu',component:StudentmenuComponent,children:[
     {path:'card',component:CardComponent},
-    {path:'writeReview',component:WriteReviewComponent},
     {path:'readReview',component:ReadReviewComponent},
+    {path:'studentDashboard',component:DashboardComponent},
+    {path:'writeReview',component:WriteReviewComponent},  
+    {path:'selectPage',component:SelectionPageComponent},
   ]},  
 ];
 
