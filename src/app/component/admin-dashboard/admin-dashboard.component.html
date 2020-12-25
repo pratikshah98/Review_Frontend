@@ -8,9 +8,9 @@
                             <div class="card-icon">
                                 <i class="material-icons">account_circle</i>
                             </div>
-                            <p class="card-category">Student</p>
+                            <p class="card-category">Total Company</p>
                             <h3 class="card-title">
-                                <small></small>
+                                <small style="font-size: x-large;">{{totalCompany}}</small>
                             </h3>
                         </div>
                         <div class="card-footer">
@@ -26,9 +26,9 @@
                             <div class="card-icon">
                                 <i class="material-icons">subject</i>
                             </div>
-                            <p class="card-category">Batch</p>
+                            <p class="card-category">No. Internship</p>
                             <h3 class="card-title">
-                                <small></small>
+                                <small style="font-size: x-large;">{{totalInternship}}</small>
                             </h3>
                         </div>
                         <div class="card-footer">
@@ -44,9 +44,9 @@
                             <div class="card-icon">
                                 <i class="material-icons">how_to_reg</i>
                             </div>
-                            <p class="card-category">Employees</p>
+                            <p class="card-category">Total Review</p>
                             <h3 class="card-title">
-                                <small></small>
+                                <small style="font-size: x-large;">{{totalReview}}</small>
                             </h3>
                         </div>
                         <div class="card-footer">
@@ -62,9 +62,9 @@
                             <div class="card-icon">
                                 <i class="material-icons">assignment</i>
                             </div>
-                            <p class="card-category">Question Bank</p>
+                            <p class="card-category">Total student</p>
                             <h3 class="card-title">
-                                <small></small>
+                                <small style="font-size: x-large;">{{totalStudent}}</small>
                             </h3>
                         </div>
                         <div class="card-footer">
@@ -157,26 +157,25 @@
                     <div class="card card-chart">
                         <div class="card-header card-header-info">
                             <div class="ct-chart" style="height:215px">
-                                <table class="order_tbl" mat-table [dataSource]="" matSort
-                                    multiTemplateDataRows>
+                                <table class="order_tbl" mat-table [dataSource]="" matSort multiTemplateDataRows>
                                     <tbody>
                                         <ng-container matColumnDef="Exam_name">
                                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Exam Name </th>
-                                            <td mat-cell *matCellDef="let item">  </td>
+                                            <td mat-cell *matCellDef="let item"> </td>
                                         </ng-container>
                                         <ng-container matColumnDef="Batch_name">
                                             <th mat-header-cell *matHeaderCellDef mat-sort-header>Batch Name</th>
-                                            <td mat-cell *matCellDef="let item">  </td>
+                                            <td mat-cell *matCellDef="let item"> </td>
                                         </ng-container>
 
                                         <ng-container matColumnDef="Marks">
                                             <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Mark</th>
-                                            <td mat-cell *matCellDef="let item">  </td>
+                                            <td mat-cell *matCellDef="let item"> </td>
                                         </ng-container>
 
                                         <ng-container matColumnDef="Time">
                                             <th mat-header-cell *matHeaderCellDef mat-sort-header>Durations</th>
-                                            <td mat-cell *matCellDef="let item">  </td>
+                                            <td mat-cell *matCellDef="let item"> </td>
                                         </ng-container>
 
                                         <tr mat-header-row *matHeaderRowDef="exam_displayedColumns"></tr>
@@ -223,28 +222,28 @@
 
                                         <ng-container matColumnDef="Name">
                                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Student Name </th>
-                                            <td mat-cell *matCellDef="let item">  </td>
+                                            <td mat-cell *matCellDef="let item"> </td>
                                         </ng-container>
 
                                         <ng-container matColumnDef="Phone_no">
                                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Mobile Number </th>
-                                            <td mat-cell *matCellDef="let item">  </td>
+                                            <td mat-cell *matCellDef="let item"> </td>
                                         </ng-container>
 
 
                                         <ng-container matColumnDef="Batch_name">
                                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Batch Name </th>
-                                            <td mat-cell *matCellDef="let item">  </td>
+                                            <td mat-cell *matCellDef="let item"> </td>
                                         </ng-container>
 
                                         <ng-container matColumnDef="Paid_amount">
                                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
-                                            <td mat-cell *matCellDef="let item"> 
+                                            <td mat-cell *matCellDef="let item">
                                             </td>
                                         </ng-container>
                                         <ng-container matColumnDef="Date">
                                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
-                                            <td mat-cell *matCellDef="let item">  </td>
+                                            <td mat-cell *matCellDef="let item"> </td>
                                         </ng-container>
                                         <tr mat-header-row *matHeaderRowDef="trans_displayedColumns"></tr>
                                         <tr mat-row *matRowDef="let row; columns: trans_displayedColumns;"></tr>
