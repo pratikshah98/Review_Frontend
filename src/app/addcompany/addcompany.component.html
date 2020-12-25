@@ -12,7 +12,7 @@
                           <form class="example-form" (ngSubmit)="onclickAdd()" #f="ngForm">
                               <div class="rows">
                                   <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Select CompanyName" ngModel #name="ngModel" required
+                                      <input matInput placeholder="Enter CompanyName" ngModel #name="ngModel" required
                                           [(ngModel)]="company_name" name="company_name">
                                       <mat-error *ngIf="name?.hasError('required')">
                                           CompanyName is Required
@@ -21,14 +21,14 @@
                               </div>
                               <div class="rows">
                                    <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Select CompanyUrl" ngModel #url="ngModel" required
+                                      <input matInput placeholder="Enter CompanyUrl" ngModel #url="ngModel" required
                                           [(ngModel)]="company_url" name="company_url">
                                       <mat-error *ngIf="url?.hasError('required')">
                                           CompanyUrl is Required
                                       </mat-error>
                                   </mat-form-field>
                               </div>
-                              
+
                               <br>
                               <div class="rows">
                                   <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Add

@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
           else{
             this.loginService.adminLogin(new adminLoginClass(username,password)).subscribe(
               (admindata:any)=> {
+                console.log(admindata)
                 if(admindata.length==1)
                 {
                   localStorage.setItem('email',username);
@@ -51,7 +52,7 @@ export class LoginComponent implements OnInit {
               }
             )
           }
-          
+
         }
       );
 
