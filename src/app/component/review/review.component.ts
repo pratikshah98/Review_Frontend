@@ -1,47 +1,56 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import { StudentService } from "../../service/student.service";
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageEvent, MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
-import { MatDialog, MatDialogRef} from '@angular/material/dialog';
-import { AdminService } from "../../service/admin.service";
 import { review_class } from "../../classes/review";
 @Component({
   selector: 'app-review',
   templateUrl: './review.component.html',
-  styleUrls: ['./review.component.css']
+  styleUrls: ['./review.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ]
 })
 export class ReviewComponent implements OnInit {
 
   flag:boolean;
-  currentdialog:MatDialogRef<any>=null;
-  reviewDataSource=new MatTableDataSource();
+  dataSource=new MatTableDataSource();
+  columnsToDisplay = ['student_name', 'review_title', 'student_contact_no', 'student_email'];
+  expandedElement: review_class | null;
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
   @ViewChild(MatSort)
   sort: MatSort;
   pageEvent: PageEvent;
-  review_arr:  review_class[]= [];
-  constructor(private route:Router,private adminService:AdminService) { }
-  displayedColumns: string[] = ['review_title','review_description','cons','pros','rating','Action'];
+  
+  constructor(private route:Router,private studentService:StudentService) { }
 
   ngOnInit(): void {
-    this.flag=true;
-    this.adminService.getAllReview().subscribe((data:any)=>{
-      this.reviewDataSource.paginator = this.paginator;
-      this.reviewDataSource.sort = this.sort;
-      this.review_arr=data;
-      this.reviewDataSource.data=this.review_arr;
-      console.log(data);
-    });
+    this.flag=true;    
+    this.studentService.getAllReview().subscribe(
+      (data:any)=>{
+        
+        console.log(data);
+        this.dataSource.data = data;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      }
+    );
   }
   onAddReview()
   {
     this.route.navigate(['menu/addreview']);
   }
   applyFilter(filterValue: string) {
-    this.reviewDataSource.filter = filterValue.trim().toLowerCase();
-    if(this.reviewDataSource.filteredData.length==0)
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    if(this.dataSource.filteredData.length==0)
     {
       this.flag=false;
     }
@@ -53,10 +62,4 @@ export class ReviewComponent implements OnInit {
   onEdit(review_id){
      this.route.navigate(['menu/updatereview',review_id])
   }
-  // onDelete(item){
-  //   this.adminService.deleteLocation(item.location_id).subscribe((data:any)=>{
-  //     this.location_arr.splice(this.location_arr.indexOf(item),1);
-  //     this.locationDataSource.data=this.location_arr;
-  //   })
-  // }
 }
