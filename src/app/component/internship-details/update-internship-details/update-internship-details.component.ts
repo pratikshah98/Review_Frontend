@@ -20,17 +20,65 @@ export class UpdateInternshipDetailsComponent implements OnInit {
   job_profile_id:number;
   location_id:number;
   student_id:number;
-  constructor(private _avr:ActivatedRoute,private _router:Router,private _adminser:AdminService) { }
+  approved_status:number;
+  jobprofile_arr:[]=[];
+  faculty_arr:[]=[];
+  location_arr:[]=[];
+  company_arr:[]=[];
+  internshiptype_arr:[]=[];
+  choice:string;
+  flag:number=0;
+  constructor(private _avr:ActivatedRoute,private _router:Router,private _adminService:AdminService) { }
 
   ngOnInit(): void {
+    this._adminService.getAllJobProfile().subscribe(
+      (data:any)=>{
+        console.log(data);
+        this.jobprofile_arr=data;
+      });
+
+      this._adminService.getAllFaculty().subscribe(
+        (data:any)=>{
+          console.log(data);
+          this.faculty_arr=data;
+        });
+
+      this._adminService.getAllLocation().subscribe(
+        (data:any)=>{
+          console.log(data);
+          this.location_arr=data;
+        });
+
+        this._adminService.getAllCompany().subscribe(
+        (data:any)=>{
+          console.log(data);
+          this.company_arr=data;
+        });
+
+        this._adminService.getAllInternshipType().subscribe(
+          (data:any)=>{
+            console.log(data);
+            this.internshiptype_arr=data;
+          });
+        
     this.internship_id=this._avr.snapshot.params['id'];
-    this._adminser.getInternshipById(this.internship_id).subscribe((data:any)=>{
+    this._adminService.getInternshipById(this.internship_id).subscribe((data:any)=>{
+      console.log(data);
       this.added_on=data[0]["added_on"];
       this.ctc=data[0]["ctc"];
-      this.start_date=data[0]["start_date"];
+      this.start_date=new Date(data[0]["start_date"]);
+      console.log(this.start_date);
       this.stipend=data[0]["stipend"];
       this.company_id=data[0]["company_id"];
       this.faculty_id=data[0]["faculty_id"];
+      if(this.faculty_id==null)
+      {
+        this.choice='Off-campus';
+      }
+      else
+      {
+        this.choice='On-campus';
+      }
       this.internship_type_id=data[0]["internship_type_id"];
       this.job_profile_id=data[0]["job_profile_id"];
       this.location_id=data[0]["location_id"];
@@ -41,8 +89,11 @@ export class UpdateInternshipDetailsComponent implements OnInit {
     this._router.navigate(['menu/internship']);
   }
   onclickSave(){
-      this._adminser.updateIntenship(this.internship_id,new intenrship_class(this.added_on,this.ctc,this.start_date,this.stipend,this.company_id,this.faculty_id,this.internship_type_id,this.job_profile_id,this.location_id,this.student_id)).subscribe((data:any)=>{
-        this._router.navigate(['menu/internship']);
-      }) 
+      // this._adminser.updateIntenship(this.internship_id,new intenrship_class(this.added_on,this.ctc,this.start_date,this.stipend,this.company_id,this.faculty_id,this.internship_type_id,this.job_profile_id,this.location_id,this.student_id)).subscribe((data:any)=>{
+      //   this._router.navigate(['menu/internship']);
+      //}) 
   }
+  selectChangeHandler(){}
+  onChoiceChange(){}
+  onclickAdd(){}
 }

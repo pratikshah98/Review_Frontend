@@ -55,6 +55,8 @@ course_arr:courseClass[]=[];
         console.log(data);
         this.course_arr=data;
       })
+      
   }
+ l
 
 }

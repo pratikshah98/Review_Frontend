@@ -36,6 +36,7 @@ import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashb
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
+  {path:'addstudent',component:AddstudentComponent},
   {path:'menu',component:MenuComponent,children:[
     {path:'adminDashboard',component:AdminDashboardComponent},
     {path:'internshipType',component:InternshipTypeComponent},
@@ -50,7 +51,7 @@ const routes: Routes = [
     {path:'addcompany',component:AddcompanyComponent},
     {path:'updatecompany/:id',component:UpdateCompanyDetailsComponent},
     {path:'addinternship',component:AddinternshipComponent},
-    {path:'addstudent',component:AddstudentComponent},
+   
     {path:'addfaculty',component:AddfacultyComponent},
     {path:'location',component:LocationComponent},
     {path:'updatelocation/:id',component:UpdateLocationComponent},

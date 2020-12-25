@@ -11,12 +11,7 @@
                         <div class="card-body">
                             <form class="example-form" (ngSubmit)="onclickAdd()" #f="ngForm">
 
-                                <div class="rows">
-                                    <mat-form-field class="example-full-width">
-                                        <input matInput type="date" placeholder="Added On" ngModel #strength="ngModel"
-                                            [(ngModel)]="added_on" name="added_on">
-                                    </mat-form-field>
-                                </div>
+                               
                                 <br>
 
                                 <div class="rows">
@@ -25,7 +20,98 @@
                                             name="ctc">
                                     </mat-form-field>
                                 </div>
+
+                                <div class="rows">
+                                
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select placeholder="Select IntershipTypeName" (selectionChange)="selectChangeHandler()" required #internshiptypeid="ngModel"
+                                            name="internshiptypeid" [(ngModel)]="internship_type_id">
+                                            <mat-option *ngFor="let item of internshiptype_arr" [value]="item.internship_type_id" class="example-full-width1">
+                                                {{item.internship_type_name}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <!-- <mat-error *ngIf="subject.hasError('required')">
+                                                        Subject Must be selected
+                                                      </mat-error> -->
+                                    </mat-form-field>
+                                
+                                </div>
+                    
                                 <br>
+
+                                <label id="example-radio-group-label">Select your choice</label>
+                                <br>
+                                <mat-radio-group (change)="onChoiceChange()" aria-labelledby="example-radio-group-label" class="example-radio-group" name="Choice" [(ngModel)]="choice">
+                                  <mat-radio-button color="primary" value="On-campus" >
+                                    On-campus
+                                  </mat-radio-button>
+                                  &nbsp;&nbsp;&nbsp;
+                                  <mat-radio-button color="primary" value="Off-campus" >
+                                    Off-campus
+                                  </mat-radio-button>
+                                </mat-radio-group>
+        
+        
+        
+          <div *ngIf="choice=='On-campus'">
+            <br><br>
+           
+            <div class="rows">
+                                
+                <mat-form-field class="example-full-width">
+                    <mat-select placeholder="Select facultyName" (selectionChange)="selectChangeHandler()" required #facultyid="ngModel"
+                        name="jobprofileid" [(ngModel)]="faculty_id">
+                        <mat-option *ngFor="let item of faculty_arr" [value]="item.faculty_id" class="example-full-width1">
+                            {{item.faculty_name}}
+                        </mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="subject.hasError('required')">
+                                    Subject Must be selected
+                                  </mat-error> -->
+                </mat-form-field>
+            
+            </div>
+        
+          </div>
+        
+          <div *ngIf="choice=='Off-campus'">
+            <br><br>
+              
+            <div class="rows">
+                                
+                <mat-form-field class="example-full-width">
+                    <mat-select placeholder="Select CompanyName" (selectionChange)="selectChangeHandler()" required #companyid="ngModel"
+                        name="companyid" [(ngModel)]="company_id">
+                        <mat-option *ngFor="let item of company_arr" [value]="item.company_id" class="example-full-width1">
+                            {{item.company_name}}
+                        </mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="subject.hasError('required')">
+                                    Subject Must be selected
+                                  </mat-error> -->
+                </mat-form-field>
+            
+            </div>
+
+            <div class="rows">
+                                
+                <mat-form-field class="example-full-width">
+                    <mat-select placeholder="Select LocationName" (selectionChange)="selectChangeHandler()" required #locationid="ngModel"
+                        name="locationid" [(ngModel)]="location_id">
+                        <mat-option *ngFor="let item of location_arr" [value]="item.location_id" class="example-full-width1">
+                            {{item.location_name}}
+                        </mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="subject.hasError('required')">
+                                    Subject Must be selected
+                                  </mat-error> -->
+                </mat-form-field>
+            
+            </div>
+
+          </div>
+
+
 
                                 <div class="rows">
                                     <mat-form-field class="example-full-width">
@@ -42,6 +128,22 @@
                                     </mat-form-field>
                                 </div>
                                 <br>
+
+                                <div class="rows">
+                                
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select placeholder="Select JobProfileName" (selectionChange)="selectChangeHandler()" required #jobprofileid="ngModel"
+                                            name="jobprofileid" [(ngModel)]="job_profile_id">
+                                            <mat-option *ngFor="let item of jobprofile_arr" [value]="item.job_profile_id" class="example-full-width1">
+                                                {{item.job_profile_name}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <!-- <mat-error *ngIf="subject.hasError('required')">
+                                                        Subject Must be selected
+                                                      </mat-error> -->
+                                    </mat-form-field>
+                                
+                                </div>
 
                                 <!-- <div class="rows">
                                     <mat-form-field class="example-full-width">

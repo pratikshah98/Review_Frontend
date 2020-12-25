@@ -139,6 +139,7 @@ export class AdminService {
   }
   addInternship(item)
   {
+    console.log(item);
     let body=JSON.stringify(item);
     return this._http.post(this.internshipUrl,body,httpOptions);
   }
