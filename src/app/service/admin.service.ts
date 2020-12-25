@@ -19,6 +19,10 @@ export class AdminService {
   private reviewUrl = url.endPoints+"review/";
   private internshipTypeUrl = url.endPoints+"internshipType/";
   private adminUrl= url.endPoints+'admin';
+  private companycount= url.endPoints+'companycount';
+  private internshipcount= url.endPoints+'internshipcount';
+  private reviewcount= url.endPoints+'reviewcount';
+  private studentcount= url.endPoints+'studentcount';
   constructor(private _http:HttpClient) { }
 /*********************************** GET *****************************************/
 
@@ -62,6 +66,23 @@ export class AdminService {
   {
     return this._http.get(this.adminUrl);
   }
+  getCountByCompany()
+  {
+    return this._http.get(this.companycount);
+  }
+  getCountByInternship()
+  {
+    return this._http.get(this.internshipcount);
+  }
+  getCountByReview()
+  {
+    return this._http.get(this.reviewcount);
+  }
+  getCountByStudent()
+  {
+    return this._http.get(this.studentcount);
+  }
+
 /*********************************** GET BY ID *****************************************/  
   getInternshipTypeById(id){
     return this._http.get(this.internshipTypeUrl+id);
