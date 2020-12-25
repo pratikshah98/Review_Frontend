@@ -61,7 +61,7 @@
 
 
 
-          <button mat-raised-button (click)="onclickAdd(item.internship_id)" color="primary">Select the Internship</button>
+          <button mat-raised-button (click)="onclickAdd(item.internship_id)" color="primary" [disabled]="item.review">Select the Internship</button>
         </mat-card-content>
       </mat-card>
     </div>

@@ -13,7 +13,7 @@ export class intenrship_class
     public student_id:number,
     public company_id?:number,
     public faculty_id?:number,
-    
+    public review?:boolean
     
    // public internship_id?:number,
     

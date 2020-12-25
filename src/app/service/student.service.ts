@@ -32,5 +32,7 @@ export class StudentService {
     let body=JSON.stringify(item);
     return this._http.post(this.reviewUrl,body,httpOptions);
   }
-
+  getReviewByInternshipId(id){
+    return this._http.get(this.reviewUrl+"ByinternshipId/"+id);
+  }
 }

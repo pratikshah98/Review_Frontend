@@ -16,7 +16,8 @@ class internShip_StudentData {
     public location_name: string,
     public start_date: Date,
     public internship_type_duration: number,
-    public internship_id:number
+    public internship_id:number,
+    public review?:boolean
   ) {}
 }
 @Component({
@@ -56,6 +57,17 @@ export class SelectionPageComponent implements OnInit {
             } else {
               console.log(interndata);
               this.intern_studentData = interndata;
+              for(let i=0;i<this.intern_studentData.length;i++){
+                this._studentService.getReviewByInternshipId(this.intern_studentData[i].internship_id).subscribe((data:any)=>{
+                  console.log(data);
+                  if(data.length<1){
+                    this.intern_studentData[i].review=false;
+                  }
+                  else{
+                    this.intern_studentData[i].review=true;
+                  }
+                })
+              }
               this.flag=false;
             }
           });
