@@ -100,7 +100,7 @@
                                     <div class="col-md-12">
                                         <div class="row">
                                             <div class="col-md-5">
-                                                <p class="field">Name : </p>
+                                                <p class="field">Name : {{student_name}}</p>
                                             </div>
                                             <div class="col-md-7">
                                                 <p class="value"></p>
@@ -109,7 +109,7 @@
 
                                         <div class="row">
                                             <div class="col-md-5">
-                                                <p class="field">Batch Name : </p>
+                                                <p class="field">Course Name : {{course_name}}</p>
                                             </div>
                                             <div class="col-md-7">
                                                 <p class="value"></p>
@@ -118,7 +118,7 @@
 
                                         <div class="row">
                                             <div class="col-md-5">
-                                                <p class="field">Mobile Number :</p>
+                                                <p class="field">Mobile Number :{{student_contact_no}}</p>
                                             </div>
                                             <div class="col-md-7">
                                                 <p class="value"></p>
@@ -128,27 +128,7 @@
 
                                         <div class="row">
                                             <div class="col-md-5">
-                                                <p class="field">Email Id :</p>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <p class="value"></p>
-                                            </div>
-                                        </div>
-
-
-
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <p class="field">Parent Name :</p>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <p class="value"></p>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <p class="field">Parent's Number :</p>
+                                                <p class="field">Email:{{email}}</p>
                                             </div>
                                             <div class="col-md-7">
                                                 <p class="value"></p>
@@ -159,7 +139,7 @@
 
                                         <div class="row">
                                             <div class="col-md-5">
-                                                <p class="field">Date of Birth :</p>
+                                                <p class="field">Course Duration : {{course_duration}} Year </p>
                                             </div>
                                             <div class="col-md-7">
                                                 <p class="value"></p>
@@ -168,112 +148,53 @@
 
                                         <div class="row">
                                             <div class="col-md-5">
-                                                <p class="field">Joining Date :</p>
+                                                <p class="field">Course Strength : {{course_strength}}</p>
                                             </div>
                                             <div class="col-md-7">
                                                 <p class="value"></p>
                                             </div>
                                         </div>
 
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <p class="field">Total fees :</p>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <p class="value"></p>
-                                            </div>
-                                        </div>
 
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <p class="field">Address :</p>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <p class="value"></p>
-                                            </div>
-                                        </div>
+
+
+
+
                                     </div>
                                 </div>
                             </mat-card-content>
                         </mat-card>
                     </div>
                     <div class="col-md-6">
-                        <mat-card class="example-card">
-                            <mat-card-header>
-                                <mat-card-title>
-                                    <mat-icon style="color:black;">post_add</mat-icon> Latest announcement
-                                </mat-card-title>
-                            </mat-card-header>
-                            <!-- <mat-card-content >
-                                <h1>No Announcements</h1>
-                            </mat-card-content> -->
-                            <mat-card-content >
-                                <hr>
-                                <mat-list>
-                                    <mat-list-item>
-                                        <div mat-line style="text-decoration: underline;font-size: larger;">
-                                             <p style="display: inline;"></p>
-                                        </div>
-                                        <div mat-line style="font-size: large;">
-                                        </div>
-                                        <mat-divider></mat-divider>
-                                    </mat-list-item>
-                                </mat-list>
-                            </mat-card-content>
-                        </mat-card>
+
                         <br>
                         <mat-card class="example-card">
-                            <!-- <div>
-                                <mat-card-header>
-                                    <mat-card-title>
-                                        <mat-icon style="color:black;">assignment_turned_in</mat-icon> No Results Found
-                                    </mat-card-title>
-                                </mat-card-header>
-                            </div> -->
+
                             <div>
                                 <mat-card-header>
                                     <mat-card-title>
-                                        <mat-icon style="color:black;">assignment_turned_in</mat-icon> All Exam Result
+                                        <mat-icon style="color:black;">assignment_turned_in</mat-icon> All Company Details
                                     </mat-card-title>
                                 </mat-card-header>
                                 <mat-card-content>
                                     <hr>
                                     <div class="mat-elevation-z8">
-                                        <table mat-table [dataSource]="" matSort>
-                                            <ng-container matColumnDef="Exam_name">
-                                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Exam Name </th>
-                                                <td mat-cell *matCellDef="let row">  </td>
-                                            </ng-container>
+                                      <table  mat-table [dataSource]="companyDataSource" matSort
+                                      multiTemplateDataRows>
+                                      <tbody>
+                                          <ng-container matColumnDef="company_name">
+                                              <th mat-header-cell *matHeaderCellDef mat-sort-header> Company Name </th>
+                                              <td mat-cell *matCellDef="let item"> {{item.company_name}} </td>
+                                          </ng-container>
+                                          <ng-container matColumnDef="company_url">
+                                              <th mat-header-cell *matHeaderCellDef mat-sort-header>Company Url</th>
+                                              <td mat-cell *matCellDef="let item"> {{item.company_url}} </td>
+                                          </ng-container>
 
-
-                                            <ng-container matColumnDef="obtained_marks">
-                                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Obtained Marks
-                                                </th>
-                                                <td mat-cell *matCellDef="let row">  </td>
-                                            </ng-container>
-
-
-                                            <ng-container matColumnDef="Total_marks">
-                                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Marks </th>
-                                                <td mat-cell *matCellDef="let row">  </td>
-                                            </ng-container>
-
-
-                                            <ng-container matColumnDef="percent">
-                                                <th mat-header-cell *matHeaderCellDef mat-sort-header> percentage </th>
-                                                <td mat-cell *matCellDef="let row"> 
-                                                </td>
-                                            </ng-container>
-
-                                            <ng-container matColumnDef="date">
-                                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Exam Date </th>
-                                                <td mat-cell *matCellDef="let row">  </td>
-                                            </ng-container>
-
-                                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                                            <tr mat-row *matRowDef="let row; columns: displayedColumns;">
-                                            </tr>
-                                        </table>
+                                          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                                      </tbody>
+                                  </table>
                                         <mat-paginator [pageSizeOptions]="[2,3,5]"></mat-paginator>
                                     </div>
                                 </mat-card-content>

@@ -13,13 +13,13 @@
         <div id="form-wrap">
             <form  #f="ngForm" (ngSubmit)="addform(f)">
                 <p >HELLO {{student_name}},</p>
-              
+
                     <label>Title:</label>
                     <input type="text" [(ngModel)]="review_title" name="review_title" #title="ngModel"
                         [class.is-invalid]="title.invalid && title.touched" required>
                     <span *ngIf="title.errors && (title.invalid && title.touched) && title.errors.required"
                         style="color:red;font-size:12px;margin-top:-5px;">Title is required.</span>
-                
+
                 <div>
                     <label>Description:</label>
                     <textarea name="review_description" [(ngModel)]="review_description" #desc="ngModel"
@@ -53,36 +53,16 @@
                     <span *ngIf="date.errors && (date.invalid && date.touched) && date.errors.required"
                         style="color:red;font-size:12px;">Date is required.</span>
                 </div> -->
-                <div>
-                    <label>Internship Id:</label>
-                
-                    <select name="internship_id" [(ngModel)]="internship_id" (selectionChange)="selectChangeHandler()" #intid="ngModel"
-                        [class.is-invalid]="intid.invalid && intid.touched" required>
-                        <option *ngFor="let item of internship_arr" [value]="item.internship_id">{{item.internship_id}}</option>
-                
-                    </select>
-                    <span *ngIf="intid.errors && (intid.invalid && intid.touched) && intid.errors.required"
-                        style="color:red;font-size:12px;">InternshipId is required.</span>
-                </div>
-                <div>
-                    <label>Admin Id:</label>
-                
-                    <select name="admin_id" [(ngModel)]="admin_id" (selectionChange)="selectChangeHandler()" #email="ngModel"
-                        [class.is-invalid]="email.invalid && email.touched" required>
-                        <option *ngFor="let item of admin_arr" [value]="item.admin_email">{{item.admin_email}}</option>
-                
-                    </select>
-                    <span *ngIf="email.errors && (email.invalid && email.touched) && email.errors.required"
-                        style="color:red;font-size:12px;">Email is required.</span>
-                </div>
+
+
                 </form>
                 <br><br>
                 <!-- <input type="submit" name="submitBtn" value="Thank you For Your Response!"> -->
                 <button type="submit" [disabled]="f.invalid" (click)="onclickAdd()">Add Review</button>
                 <button  (click)="onclickCancel()">Cancel</button>
-           
+
         </div>
-       
+
     </div>
 </body>
 

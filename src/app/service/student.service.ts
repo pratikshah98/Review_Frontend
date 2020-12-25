@@ -10,15 +10,21 @@ const httpOptions = {
 export class StudentService {
   private reviewUrl = url.endPoints+"review/";
   private studentUrl = url.endPoints+"student/";
+  private internStudent=url.endPoints+"internStudent/";
   constructor(private _http:HttpClient) { }
   /*********************************** GET *****************************************/
   getAllReview()
   {
     return this._http.get(this.reviewUrl);
   }
-  /*********************************** GET BY ID *****************************************/  
+  /*********************************** GET BY ID *****************************************/
   getStudentById(id){
     return this._http.get(this.studentUrl+id);
+  }
+
+  getIntenShipByStudentId(id)
+  {
+    return this._http.get(this.internStudent+id);
   }
   /*********************************** POST *****************************************/
   addReview(item)
