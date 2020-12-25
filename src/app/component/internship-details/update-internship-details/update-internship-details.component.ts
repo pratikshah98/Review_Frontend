@@ -89,11 +89,21 @@ export class UpdateInternshipDetailsComponent implements OnInit {
     this._router.navigate(['menu/internship']);
   }
   onclickSave(){
-      // this._adminser.updateIntenship(this.internship_id,new intenrship_class(this.added_on,this.ctc,this.start_date,this.stipend,this.company_id,this.faculty_id,this.internship_type_id,this.job_profile_id,this.location_id,this.student_id)).subscribe((data:any)=>{
-      //   this._router.navigate(['menu/internship']);
-      //}) 
+     
+      this.approved_status=1;
+      this._adminService.updateIntenship(this.internship_id,new intenrship_class(this.approved_status,this.ctc,this.start_date,this.stipend,this.internship_type_id,this.job_profile_id,this.location_id,this.student_id,this.company_id,this.faculty_id)).subscribe(
+      (data:any)=>{
+        
+       
+        console.log(data);
+          alert('Internship Updated suceessfully..');
+          this._router.navigate(['menu/internship']);
+        
+        
+    }
+    );
   }
   selectChangeHandler(){}
   onChoiceChange(){}
-  onclickAdd(){}
+ 
 }

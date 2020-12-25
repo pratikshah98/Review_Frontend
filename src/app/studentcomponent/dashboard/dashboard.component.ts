@@ -1,7 +1,7 @@
 import { StudentService } from 'src/app/service/student.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { animation } from '@angular/animations';
-import { Chart } from 'chart.js';
+//import { Chart } from 'chart.js';
 import { AdminService } from "../../service/admin.service";
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';

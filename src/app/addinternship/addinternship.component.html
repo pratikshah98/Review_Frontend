@@ -13,11 +13,23 @@
 
                                
                                 <br>
+                                <div class="rows">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Enter StudentId" ngModel #studentid="ngModel" [(ngModel)]="student_id" required
+                                            name="student_id">
+                                            <mat-error *ngIf="studentid?.hasError('required')">
+                                                StudentId is required.
+                                          </mat-error>
+                                    </mat-form-field>
+                                </div>
 
                                 <div class="rows">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="ctc" ngModel #strength="ngModel" [(ngModel)]="ctc"
+                                        <input matInput placeholder="Enter Ctc Amount" ngModel #ctcamo="ngModel" [(ngModel)]="ctc" required
                                             name="ctc">
+                                            <mat-error *ngIf="ctcamo?.hasError('required')">
+                                                Ctc Amount is required.
+                                          </mat-error>
                                     </mat-form-field>
                                 </div>
 
@@ -30,9 +42,9 @@
                                                 {{item.internship_type_name}}
                                             </mat-option>
                                         </mat-select>
-                                        <!-- <mat-error *ngIf="subject.hasError('required')">
-                                                        Subject Must be selected
-                                                      </mat-error> -->
+                                        <mat-error *ngIf="internshiptypeid?.hasError('required')">
+                                            InternshipTypeName is required.
+                                      </mat-error>
                                     </mat-form-field>
                                 
                                 </div>
@@ -65,9 +77,9 @@
                             {{item.faculty_name}}
                         </mat-option>
                     </mat-select>
-                    <!-- <mat-error *ngIf="subject.hasError('required')">
-                                    Subject Must be selected
-                                  </mat-error> -->
+                    <mat-error *ngIf="facultyid.hasError('required')">
+                                    facultyName Must be selected
+                                  </mat-error>
                 </mat-form-field>
             
             </div>
@@ -86,9 +98,9 @@
                             {{item.company_name}}
                         </mat-option>
                     </mat-select>
-                    <!-- <mat-error *ngIf="subject.hasError('required')">
-                                    Subject Must be selected
-                                  </mat-error> -->
+                    <mat-error *ngIf="companyid.hasError('required')">
+                        CompanyName Must be selected
+                      </mat-error>
                 </mat-form-field>
             
             </div>
@@ -102,9 +114,9 @@
                             {{item.location_name}}
                         </mat-option>
                     </mat-select>
-                    <!-- <mat-error *ngIf="subject.hasError('required')">
-                                    Subject Must be selected
-                                  </mat-error> -->
+                    <mat-error *ngIf="locationid?.hasError('required')">
+                        LocationName Must be selected
+                      </mat-error>
                 </mat-form-field>
             
             </div>
@@ -115,18 +127,26 @@
 
                                 <div class="rows">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput type="date" placeholder="Start Date" ngModel #strength="ngModel"
-                                            [(ngModel)]="start_date" name="start_date">
+                                        <input matInput type="date" placeholder="Start Date" ngModel #startdate="ngModel"
+                                            [(ngModel)]="start_date" name="start_date" required> 
+                                            <mat-error *ngIf="startdate?.hasError('required')">
+                                                StartDate is required.
+                                          </mat-error>
                                     </mat-form-field>
                                 </div>
                                 <br>
 
                                 <div class="rows">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Stipend" ngModel #strength="ngModel"
+                                        <input matInput placeholder="Enter Stipend" ngModel #stipen="ngModel" required
                                             [(ngModel)]="stipend" name="stipend">
+                                            <mat-error *ngIf="stipen?.hasError('required')">
+                                                    Stipend Amount is required.
+                                              </mat-error>
                                     </mat-form-field>
+                                    
                                 </div>
+                               
                                 <br>
 
                                 <div class="rows">
@@ -138,114 +158,14 @@
                                                 {{item.job_profile_name}}
                                             </mat-option>
                                         </mat-select>
-                                        <!-- <mat-error *ngIf="subject.hasError('required')">
-                                                        Subject Must be selected
-                                                      </mat-error> -->
+                                        <mat-error *ngIf="jobprofileid?.hasError('required')">
+                                            JobProfileName is required.
+                                      </mat-error>
                                     </mat-form-field>
                                 
                                 </div>
 
-                                <!-- <div class="rows">
-                                    <mat-form-field class="example-full-width">
-                                        <mat-select placeholder="Select CourseId"
-                                            (selectionChange)="selectChangeHandler()" required #courseid="ngModel"
-                                            name="courseid" [(ngModel)]="course_id">
-                                            <mat-option *ngFor="let item of course_arr" [value]="item.course_id"
-                                                class="example-full-width1">
-                                                {{item.course_name}}
-                                            </mat-option>
-                                        </mat-select>
-                                        <mat-error *ngIf="subject.hasError('required')">
-                                            Subject Must be selected
-                                       </mat-error>
-                                    </mat-form-field>
-                                 </div>
-                                 <br>
-
-                                 <div class="rows">
-                                    <mat-form-field class="example-full-width">
-                                        <mat-select placeholder="Select CourseId"
-                                            (selectionChange)="selectChangeHandler()" required #courseid="ngModel"
-                                            name="courseid" [(ngModel)]="course_id">
-                                            <mat-option *ngFor="let item of course_arr" [value]="item.course_id"
-                                                class="example-full-width1">
-                                                {{item.course_name}}
-                                            </mat-option>
-                                        </mat-select>
-                                        <mat-error *ngIf="subject.hasError('required')">
-                                            Subject Must be selected
-                                       </mat-error>
-                                    </mat-form-field>
-                                 </div>
-                                 <br>
-
-                                 <div class="rows">
-                                    <mat-form-field class="example-full-width">
-                                        <mat-select placeholder="Select CourseId"
-                                            (selectionChange)="selectChangeHandler()" required #courseid="ngModel"
-                                            name="courseid" [(ngModel)]="course_id">
-                                            <mat-option *ngFor="let item of course_arr" [value]="item.course_id"
-                                                class="example-full-width1">
-                                                {{item.course_name}}
-                                            </mat-option>
-                                        </mat-select>
-                                        <mat-error *ngIf="subject.hasError('required')">
-                                            Subject Must be selected
-                                       </mat-error>
-                                    </mat-form-field>
-                                 </div>
-
-                                 <br>
-                                 <div class="rows">
-                                    <mat-form-field class="example-full-width">
-                                        <mat-select placeholder="Select CourseId"
-                                            (selectionChange)="selectChangeHandler()" required #courseid="ngModel"
-                                            name="courseid" [(ngModel)]="course_id">
-                                            <mat-option *ngFor="let item of course_arr" [value]="item.course_id"
-                                                class="example-full-width1">
-                                                {{item.course_name}}
-                                            </mat-option>
-                                        </mat-select>
-                                        <mat-error *ngIf="subject.hasError('required')">
-                                            Subject Must be selected
-                                       </mat-error>
-                                    </mat-form-field>
-                                 </div>
-                                 <br>
-
-                                 <div class="rows">
-                                    <mat-form-field class="example-full-width">
-                                        <mat-select placeholder="Select CourseId"
-                                            (selectionChange)="selectChangeHandler()" required #courseid="ngModel"
-                                            name="courseid" [(ngModel)]="course_id">
-                                            <mat-option *ngFor="let item of course_arr" [value]="item.course_id"
-                                                class="example-full-width1">
-                                                {{item.course_name}}
-                                            </mat-option>
-                                        </mat-select>
-                                        <mat-error *ngIf="subject.hasError('required')">
-                                            Subject Must be selected
-                                       </mat-error>
-                                    </mat-form-field>
-                                 </div>
-                                 <br>
-                                 
-                                 <div class="rows">
-                                    <mat-form-field class="example-full-width">
-                                        <mat-select placeholder="Select CourseId"
-                                            (selectionChange)="selectChangeHandler()" required #courseid="ngModel"
-                                            name="courseid" [(ngModel)]="course_id">
-                                            <mat-option *ngFor="let item of course_arr" [value]="item.course_id"
-                                                class="example-full-width1">
-                                                {{item.course_name}}
-                                            </mat-option>
-                                        </mat-select>
-                                        <mat-error *ngIf="subject.hasError('required')">
-                                            Subject Must be selected
-                                       </mat-error>
-                                    </mat-form-field>
-                                 </div>
-                                 <br> -->
+                              
 
                                 <div class="rows">
                                     <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Save

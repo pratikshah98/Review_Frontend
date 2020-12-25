@@ -28,7 +28,7 @@ export class AddinternshipComponent implements OnInit {
   internship_type_id:number;
   job_profile_id:number;
   location_id:number=4;
-  student_id:number=201912028; 
+  student_id:number; 
   approved_status:number;
 jobprofile_arr:[]=[];
 faculty_arr:[]=[];
