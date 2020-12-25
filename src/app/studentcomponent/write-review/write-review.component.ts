@@ -60,6 +60,7 @@ export class WriteReviewComponent implements OnInit {
   }
   onclickAdd()
   {
+    this.admin_id="purvang1611@gmail.com";
     this._studentService.addReview(new review_class(this.cons,this.pros,this.rating,this.review_description,this.review_title,this.internship_id,this.admin_id,this.review_status)).subscribe(
       (data:any)=>{
         //this.location_arr.push()
