@@ -18,10 +18,9 @@ import { courseClass } from 'src/app/classes/course';
   styleUrls: ['./addcourse.component.css']
 })
 export class AddcourseComponent implements OnInit {
-course_duration:number;
-course_name:string;
+  course_name:string;
+  course_duration:number;
 course_strength:number;
-course_id:number;
 
   constructor(private _route:Router,private _adminService:AdminService) { }
 
@@ -29,15 +28,14 @@ course_id:number;
   }
   onclickAdd()
   {
-    this._adminService.addCourse(new courseClass(this.course_duration,this.course_name,this.course_strength,this.course_id)).subscribe(
+    this._adminService.addCourse(new courseClass(this.course_duration,this.course_name,this.course_strength)).subscribe(
       (data:any)=>{
         //this.location_arr.push()
-       
         console.log(data);
           alert('Course Added suceessfully..');
           this._route.navigate(['menu/course']);
-        
-        
+
+
     }
     );
   }

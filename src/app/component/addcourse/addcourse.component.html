@@ -10,36 +10,29 @@
                         </div>
                         <div class="card-body">
                             <form class="example-form" (ngSubmit)="onclickAdd()" #f="ngForm">
-                                <div class="rows">
+
+                              <div class="rows">
+                                <mat-form-field class="example-full-width">
+                                   <input matInput placeholder="Enter CourseName" ngModel #name="ngModel"
+                                       [(ngModel)]="course_name" name="course_name">
+                                   <!-- <mat-error *ngIf="name?.hasError('required')">
+                                       CourseName is Required
+                                   </mat-error> -->
+                               </mat-form-field>
+                           </div>
+                              <div class="rows">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Course ID" ngModel #duration="ngModel" 
-                                            [(ngModel)]="course_id" name="course_id">
-                                        <!-- <mat-error *ngIf="duration?.hasError('required')">
-                                            CourseDuration is Required
-                                        </mat-error> -->
-                                    </mat-form-field>
-                                </div>
-                                <div class="rows">
-                                    <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Select CourseDuration" ngModel #duration="ngModel" 
+                                        <input matInput placeholder="Enter CourseDuration" ngModel #duration="ngModel"
                                             [(ngModel)]="course_duration" name="course_duration">
                                         <!-- <mat-error *ngIf="duration?.hasError('required')">
                                             CourseDuration is Required
                                         </mat-error> -->
                                     </mat-form-field>
                                 </div>
-                                <div class="rows">
-                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Select CourseName" ngModel #name="ngModel" 
-                                            [(ngModel)]="course_name" name="course_name">
-                                        <!-- <mat-error *ngIf="name?.hasError('required')">
-                                            CourseName is Required
-                                        </mat-error> -->
-                                    </mat-form-field>
-                                </div>
+
                                 <div class="rows">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Select CourseStrength" ngModel #strength="ngModel" 
+                                        <input matInput placeholder="Enter CourseStrength" ngModel #strength="ngModel"
                                             [(ngModel)]="course_strength" name="course_strength">
                                         <!-- <mat-error *ngIf="strength?.hasError('required')">
                                             CourseStrength is Required
