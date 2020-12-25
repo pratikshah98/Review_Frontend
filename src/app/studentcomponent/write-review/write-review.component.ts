@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from "@angular/router";
 import { adminLoginClass } from 'src/app/classes/adminLogin';
 import { intenrship_class } from 'src/app/classes/intenrship';
 import { review_class } from 'src/app/classes/review';
@@ -26,10 +26,16 @@ export class WriteReviewComponent implements OnInit {
   internship_arr:intenrship_class[]=[];
   student_email:string;
   student_name:string;
-  constructor(private _route:Router,private _adminService:AdminService,private _studentService:StudentService) { }
+  constructor(private _route:Router,private _adminService:AdminService,private _studentService:StudentService,private act_router:ActivatedRoute) {
+
+    this.student_email=localStorage.getItem('email');
+
+   }
 
   ngOnInit(): void {
-    this.student_email=localStorage.getItem('email');
+
+    this.internship_id = this.act_router.snapshot.params["id"];
+
     this._adminService.getAllAdmin().subscribe(
       (data:any)=>{
         console.log(data);
@@ -44,31 +50,32 @@ export class WriteReviewComponent implements OnInit {
         })
         this._studentService.getStudentById(this.student_email).subscribe(
           (data:any)=>{
+            console.log("hello");
             console.log(data);
             this.student_name=data[0].student_name;
             console.log(this.student_name);
         //    this.admin_id=data[0].admin_email;
           })
-  
+
   }
   onclickAdd()
   {
     this._studentService.addReview(new review_class(this.cons,this.pros,this.rating,this.review_description,this.review_title,this.internship_id,this.admin_id,this.review_status)).subscribe(
       (data:any)=>{
         //this.location_arr.push()
-       
+
         console.log(data);
           alert('Review Added suceessfully..');
           this._route.navigate(['studentmenu/readReview']);
-        
-        
+
+
     }
     );
   }
   onclickCancel(){
     this._route.navigate(['studentmenu/readReview']);
   }
-  
+
   selectChangeHandler()
   {
     //this.course_id=event.target.value;

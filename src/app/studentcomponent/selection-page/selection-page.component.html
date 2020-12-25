@@ -7,8 +7,17 @@
 </div> -->
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4" *ngFor="let item of intern_studentData">
       <br>
+
+      <!-- public internship_type_name: string,
+      public job_profile_name: string,
+      public stipend: number,
+      public ctc: number,
+      public location_name: string,
+      public start_date: Date,
+      public internship_type_duration: number -->
+
       <mat-card class="example-card">
         <mat-card-content>
           <mat-card-title>
@@ -17,31 +26,42 @@
 
           <br>
           <mat-card-subtitle>
-            <label>Description:</label>
-            
+            <label>Type:&nbsp;&nbsp;{{item.internship_type_name}}</label>
+
           </mat-card-subtitle>
 
           <mat-card-subtitle>
-           <b> <label>Pros:</label></b>
-           
+           <b> <label>Profile:&nbsp;&nbsp;{{item.job_profile_name}}</label></b>
+
           </mat-card-subtitle>
 
           <mat-card-subtitle>
-            <b> <label>Cons:</label></b>
-           
+            <b> <label>Duration:&nbsp;&nbsp;{{item.internship_type_duration}}</label></b>
+
            </mat-card-subtitle>
 
            <mat-card-subtitle>
-            <b> <label>Review Date:</label></b>
-           
+            <b> <label>Location:&nbsp;&nbsp;{{item.location_name}}</label></b>
+
            </mat-card-subtitle>
 
            <mat-card-subtitle>
-            <b> <label>Rating:</label></b>
-           
+            <b> <label>Start Data:&nbsp;&nbsp;{{item.start_date | date}}</label></b>
+
            </mat-card-subtitle>
 
-          <button mat-raised-button (click)="onclickAdd()" color="primary">Select the Internship</button>
+           <mat-card-subtitle>
+            <b> <label>stipend:&nbsp;&nbsp;{{item.stipend}}</label></b>
+           </mat-card-subtitle>
+
+           <mat-card-subtitle>
+            <b> <label>CTC:&nbsp;&nbsp;{{item.ctc}}</label></b>
+           </mat-card-subtitle>
+
+
+
+
+          <button mat-raised-button (click)="onclickAdd(item.internship_id)" color="primary">Select the Internship</button>
         </mat-card-content>
       </mat-card>
     </div>

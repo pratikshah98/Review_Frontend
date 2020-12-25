@@ -63,16 +63,16 @@ const routes: Routes = [
     {path:'addjobprofile',component:AddjobprofileComponent},
     {path:'addcourse',component:AddcourseComponent},
     {path:'addinternshiptype',component:AddinternshiptypeComponent},
-    
-    
-  ]},  
+
+
+  ]},
   {path:'studentmenu',component:StudentmenuComponent,children:[
     {path:'card',component:CardComponent},
     {path:'readReview',component:ReadReviewComponent},
     {path:'studentDashboard',component:DashboardComponent},
-    {path:'writeReview',component:WriteReviewComponent},  
+    {path:'writeReview/:id',component:WriteReviewComponent},
     {path:'selectPage',component:SelectionPageComponent},
-  ]},  
+  ]},
 ];
 
 @NgModule({

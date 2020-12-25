@@ -4,78 +4,62 @@
         <p class="card-category"> click on header to sort the data</p>
     </div>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <mat-form-field class="example-form">
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Review Details"
                     class="example-full-width">
             </mat-form-field>
         </div>
-        <div class="col-md-4">
-            <button mat-raised-button color="primary" (click)="onAddReview()" class="btn">
-                <mat-icon>add</mat-icon> Add Review
-            </button>
-        </div>
     </div>
-
+  
     <div class="card-body" *ngIf="!flag">
         <div class="table-responsive">
             <h6>*No Record Found</h6>
         </div>
     </div>
-
+  
     <div class="card-body" *ngIf="flag">
         <div class="table-responsive">
-            <table mat-table [dataSource]="reviewDataSource" matSort multiTemplateDataRows>
-                <tbody>
-                    <ng-container matColumnDef="review_title">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Review Title</th>
-                        <td mat-cell *matCellDef="let item"> {{item.review_title}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="review_description">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Review Description</th>
-                        <td mat-cell *matCellDef="let item"> {{item.review_description}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="cons">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Review Cons</th>
-                        <td mat-cell *matCellDef="let item"> {{item.cons}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="pros">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Review Pros</th>
-                        <td mat-cell *matCellDef="let item"> {{item.pros}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="rating">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Review Rating</th>
-                        <td mat-cell *matCellDef="let item"> {{item.rating}} </td>
-                    </ng-container>
-
-
-                    <ng-container matColumnDef="Action">
-                        <th mat-header-cell *matHeaderCellDef> Action </th>
-                        <td mat-cell *matCellDef="let item">
-                            <!-- <button mat-mini-fab color="basic" (click)="onDelete(item)">
-                                <mat-icon>delete</mat-icon>
-                            </button>&nbsp; -->
-                            <button mat-mini-fab color="basic" (click)="onEdit(item.review_id)">
-                                <mat-icon>edit</mat-icon>
-                            </button>
-                        </td>
-                    </ng-container>
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                </tbody>
-            </table>
+          <table mat-table matSort [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+            <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+              <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+              <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="expandedDetail">
+              <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+                <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                  <div class="example-element-diagram">
+                    <div class="example-element-symbol"> {{element.rating}} </div>
+                    <div class="example-element-position"> {{element.pros}} </div>
+                    <div class="example-element-name"> {{element.cons}} </div>
+                    <div class="example-element-weight"> {{element.review_date | date}} </div>
+                  </div>
+                  <div class="example-element-description">
+                    {{element.review_description}}
+                  </div>
+                </div>
+              </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
+            [class.example-expanded-row]="expandedElement === element"
+              (click)="expandedElement = expandedElement === element ? null : element" >
+            </tr>
+            
+             <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+          </table>
         </div>
     </div>
     <div class="row">
         <div class="col-md-4">
-            <!-- <button mat-raised-button color="warn" (click)="Selected_delete()">
-          <mat-icon>delete</mat-icon> Delete All
-        </button> -->
+  
         </div>
-
+  
         <div class="col-md-8">
             <mat-paginator [pageSizeOptions]="[3,5,8]">
             </mat-paginator>
         </div>
     </div>
-</div>
+  </div>
