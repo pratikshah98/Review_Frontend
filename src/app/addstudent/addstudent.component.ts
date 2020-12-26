@@ -34,14 +34,12 @@ course_arr:courseClass[]=[];
        
         console.log(data);
           alert('Student Added suceessfully..');
-          this._route.navigate(['menu/student']);
-        
-        
+          this._route.navigate(['']);
     }
     );
   }
   onclickCancle(){
-    this._route.navigate(['menu/student']);
+    this._route.navigate(['']);
   }
   selectChangeHandler()
   {

@@ -12,29 +12,29 @@
                           <form class="example-form" (ngSubmit)="onclickAdd()" #f="ngForm">
                               <div class="rows">
                                   <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Select FacultyContact" ngModel #contact="ngModel" 
+                                      <input matInput placeholder="Select FacultyContact" ngModel #contact="ngModel" required
                                           [(ngModel)]="faculty_contact_number" name="faculty_contact_number">
-                                      <!-- <mat-error *ngIf="contact?.hasError('required')">
-                                           is Required
-                                      </mat-error> -->
+                                      <mat-error *ngIf="contact?.hasError('required')">
+                                           Faculty Contact number is Required
+                                      </mat-error>
                                   </mat-form-field>
                               </div>
                               <div class="rows">
                                    <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Select FacultyEmail" ngModel #email="ngModel" 
+                                      <input matInput placeholder="Select FacultyEmail" ngModel #email="ngModel" required
                                           [(ngModel)]="faculty_email_id" name="faculty_email_id">
-                                      <!-- <mat-error *ngIf="name?.hasError('required')">
+                                      <mat-error *ngIf="name?.hasError('required')">
                                           FacultyEmail is Required
-                                      </mat-error> -->
+                                      </mat-error>
                                   </mat-form-field>
                               </div>
                               <div class="rows">
                                   <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Select FacultyName" ngModel #name="ngModel" 
+                                      <input matInput placeholder="Select FacultyName" ngModel #name="ngModel" required
                                           [(ngModel)]="faculty_name" name="faculty_name">
-                                      <!-- <mat-error *ngIf="name?.hasError('required')">
+                                      <mat-error *ngIf="name?.hasError('required')">
                                           FacultyName is Required
-                                      </mat-error> -->
+                                      </mat-error>
                                   </mat-form-field>
                               </div>
 
