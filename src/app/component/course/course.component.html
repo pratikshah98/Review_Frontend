@@ -44,13 +44,11 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Course Strength</th>
             <td mat-cell *matCellDef="let item"> {{item.course_strength}} </td>
           </ng-container>
-          
+
           <ng-container matColumnDef="Action">
             <th mat-header-cell *matHeaderCellDef> Action </th>
-            <td mat-cell *matCellDef="let item"> 
-              <button mat-mini-fab color="basic" (click)="onDelete(item)" title="Delete Course Detail" >
-                <mat-icon>delete</mat-icon>
-              </button> &nbsp; <button mat-mini-fab color="basic" title="Edit Course Detail" (click)="onEdit(item.course_id)">
+            <td mat-cell *matCellDef="let item">
+            &nbsp; <button mat-mini-fab color="basic" title="Edit Course Detail" (click)="onEdit(item.course_id)">
                 <mat-icon>edit</mat-icon>
               </button> </td>
           </ng-container>

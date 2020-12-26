@@ -22,7 +22,7 @@ export class FacultyComponent implements OnInit {
   pageEvent: PageEvent;
   faculty_tbl_arr:  facultyClass[]= [];
   constructor(private route:Router,private adminService:AdminService) { }
-  displayedColumns: string[] = ['faculty_contact_number','faculty_email_id','faculty_name','Action'];
+  displayedColumns: string[] = ['faculty_contact_number','faculty_email_id','faculty_name'];
   ngOnInit(): void {
     this.flag=true;
     this.adminService.getAllFaculty().subscribe((data:any)=>{

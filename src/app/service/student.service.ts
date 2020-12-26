@@ -11,12 +11,26 @@ export class StudentService {
   private reviewUrl = url.endPoints+"review/";
   private studentUrl = url.endPoints+"student/";
   private internStudent=url.endPoints+"internStudent/";
+  private piechart=url.endPoints+"pichart/";
   constructor(private _http:HttpClient) { }
   /*********************************** GET *****************************************/
   getAllReview()
   {
     return this._http.get(this.reviewUrl);
   }
+  pichartData()
+  {
+    return this._http.get(this.piechart);
+  }
+  barchatData()
+  {
+    return this._http.get(this.piechart+"barchart/");
+  }
+  lineChartData()
+  {
+    return this._http.get(this.piechart+"linechart/")
+  }
+
   /*********************************** GET BY ID *****************************************/
   getStudentById(id){
     return this._http.get(this.studentUrl+id);

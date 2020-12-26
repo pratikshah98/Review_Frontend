@@ -22,7 +22,7 @@ export class StudentComponent implements OnInit {
   pageEvent: PageEvent;
   student_arr:  student_class[]= [];
   constructor(private route:Router,private adminService:AdminService) { }
-  displayedColumns: string[] = ['student_email','student_contact_no','student_name','Action'];
+  displayedColumns: string[] = ['student_email','student_contact_no','student_name'];
   ngOnInit(): void {
     this.flag=true;
     this.adminService.getAllStudent().subscribe((data:any)=>{
