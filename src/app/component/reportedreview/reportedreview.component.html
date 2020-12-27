@@ -1,6 +1,6 @@
 <div class="card size">
     <div class="card-header card-header-primary">
-        <h2 class="card-title ">Review Details</h2>
+        <h2 class="card-title ">Reported Review Details</h2>
         <p class="card-category"> click on header to sort the data</p>
     </div>
     <div class="row">
@@ -38,7 +38,9 @@
                   <div class="example-element-description">
                     {{element.review_description}}
                   </div>
-                  
+                  <div>
+                    <button  mat-raised-button style="width:150px;border-radius:5px" color="primary" (click)="onReportDisapproved(element.review_id)">Restrict</button>
+                  </div>
                 </div>
               </td>
             </ng-container>

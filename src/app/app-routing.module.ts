@@ -33,6 +33,7 @@ import { AddinternshiptypeComponent } from './component/addinternshiptype/addint
 import { DashboardComponent } from './studentcomponent/dashboard/dashboard.component';
 import { SelectionPageComponent } from './studentcomponent/selection-page/selection-page.component';
 import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashboard.component';
+import { ReportedreviewComponent } from './component/reportedreview/reportedreview.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
@@ -51,7 +52,7 @@ const routes: Routes = [
     {path:'addcompany',component:AddcompanyComponent},
     {path:'updatecompany/:id',component:UpdateCompanyDetailsComponent},
     {path:'addinternship',component:AddinternshipComponent},
-   
+    {path:'reportreview',component:ReportedreviewComponent},
     {path:'addfaculty',component:AddfacultyComponent},
     {path:'location',component:LocationComponent},
     {path:'updatelocation/:id',component:UpdateLocationComponent},

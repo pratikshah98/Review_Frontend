@@ -58,6 +58,7 @@ import { AddinternshiptypeComponent } from './component/addinternshiptype/addint
 import { DashboardComponent } from './studentcomponent/dashboard/dashboard.component';
 import { SelectionPageComponent } from './studentcomponent/selection-page/selection-page.component';
 import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashboard.component';
+import { ReportedreviewComponent } from './component/reportedreview/reportedreview.component';
 
 
 @NgModule({
@@ -96,6 +97,7 @@ import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashb
     DashboardComponent,
     SelectionPageComponent,
     AdminDashboardComponent,
+    ReportedreviewComponent,
    
   ],
   imports: [

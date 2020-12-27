@@ -8,9 +8,9 @@ import { MatSort } from "@angular/material/sort";
 import { review_class } from "../../classes/review";
 import { AdminService } from 'src/app/service/admin.service';
 @Component({
-  selector: 'app-review',
-  templateUrl: './review.component.html',
-  styleUrls: ['./review.component.css'],
+  selector: 'app-reportedreview',
+  templateUrl: './reportedreview.component.html',
+  styleUrls: ['./reportedreview.component.css'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({height: '0px', minHeight: '0'})),
@@ -19,9 +19,9 @@ import { AdminService } from 'src/app/service/admin.service';
     ]),
   ]
 })
-export class ReviewComponent implements OnInit {
+export class ReportedreviewComponent implements OnInit {
 
-  flag:boolean=false;
+  flag:boolean;
   dataSource=new MatTableDataSource();
   columnsToDisplay = ['student_name', 'review_title', 'student_contact_no', 'student_email'];
   expandedElement: review_class | null;
@@ -35,7 +35,7 @@ export class ReviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.flag=true;    
-    this.studentService.getAllReview().subscribe(
+    this.adminService.getRepotedReview().subscribe(
       (data:any)=>{
         
         console.log(data);
@@ -60,8 +60,14 @@ export class ReviewComponent implements OnInit {
       this.flag=true;
     }
   }
-  onEdit(review_id){
-     this.route.navigate(['menu/updatereview',review_id])
-  }
   
+  onReportDisapproved(review_id){
+    let admin=localStorage.getItem("email");
+    this.adminService.updateReportStatus(review_id,admin).subscribe((data:any)=>{
+      alert("Status Updated Successfully.");
+      console.log(data);
+      this.ngOnInit();
+    })
+  }
+
 }

@@ -82,7 +82,9 @@ export class AdminService {
   {
     return this._http.get(this.studentcount);
   }
-
+getRepotedReview(){
+  return this._http.get(this.reviewUrl+"reportedreview");
+}
 /*********************************** GET BY ID *****************************************/  
   getInternshipTypeById(id){
     return this._http.get(this.internshipTypeUrl+id);
@@ -178,6 +180,12 @@ export class AdminService {
   updateLocation(id,item){
     let body=JSON.stringify(item);
     return this._http.put(this.locationUrl+id,body,httpOptions);
+  }
+  updateReportCount(id){
+    return this._http.put(this.reviewUrl+"/report/"+id,httpOptions);
+  }
+  updateReportStatus(id,admin){
+    return this._http.put(this.reviewUrl+"reportstatus/"+id+"/"+admin,httpOptions);
   }
 
 /*********************************** DELETE *****************************************/

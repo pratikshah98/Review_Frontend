@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PageEvent, MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { review_class } from "../../classes/review";
+import { AdminService } from 'src/app/service/admin.service';
 @Component({
   selector: 'app-read-review',
   templateUrl: './read-review.component.html',
@@ -30,7 +31,7 @@ export class ReadReviewComponent implements OnInit {
   sort: MatSort;
   pageEvent: PageEvent;
   
-  constructor(private route:Router,private studentService:StudentService) { }
+  constructor(private route:Router,private studentService:StudentService,private adminservice:AdminService) { }
 
   ngOnInit(): void {
     this.flag=true;    
@@ -54,5 +55,12 @@ export class ReadReviewComponent implements OnInit {
     {
       this.flag=true;
     }
+  }
+  onReport(review_id){
+    let admin=localStorage.getItem("email");
+    this.adminservice.updateReportCount(review_id).subscribe((data:any)=>{
+      alert("Reported.");
+      this.ngOnInit();
+    })
   }
 }

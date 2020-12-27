@@ -38,6 +38,9 @@
                 <div class="example-element-description">
                   {{element.review_description}}
                 </div>
+                <div>
+                  <button  mat-raised-button style="width:150px;border-radius:5px" color="primary" (click)="onReport(element.review_id)">Report</button>
+                </div>
               </div>
             </td>
           </ng-container>
