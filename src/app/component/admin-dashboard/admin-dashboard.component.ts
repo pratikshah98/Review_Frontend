@@ -222,7 +222,7 @@ this.student_service.lineChartData().subscribe((data:any)=>{
       this.PieChart = new Chart('piechart', {
         type: 'pie',
         data: {
-          labels: [this.lebel_data[0],this.lebel_data[1],this.lebel_data[2]],
+          labels: ["Top 1","Top 2","Top 3"],
           datasets: [{
             label: "",
             backgroundColor:["rgb(230,149,13)","rgb(252,2,128)","rgb(200,2,100)"],
